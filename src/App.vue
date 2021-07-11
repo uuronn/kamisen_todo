@@ -13,7 +13,6 @@
         </li>
       </ul>
     </div>
-    
     <Option msg="optionPage"/>
   </div>
 </template>
@@ -51,8 +50,11 @@ export default {
 }
 </script>
 
-<style>
-  #app {
+<style scoped>
+  .main {
+    text-align: center;
+  }
+  /* #app {
     display: flex;
     justify-content: center;
   }
@@ -68,5 +70,5 @@ export default {
 
   .todos {
     text-align: left;
-  }
+  } */
 </style>

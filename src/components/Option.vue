@@ -59,8 +59,8 @@ export default {
 }
 </script>
 
-<style>
-  .option {
+<style scoped>
+  /* .option {
     display: flex;
     position: absolute;
     right: 4%;
@@ -69,16 +69,17 @@ export default {
   .option_top {
     display: flex;
     flex-flow: column;
-    text-align: right;
-    width: 500px;
+    text-align: center;
+    margin-right: 0;
+    width: 300px;
   }
 
   .option_top_button {
-    
+    width: 50px;
   }
 
   .option_top_button-img {
-    vertical-align: top;
+    
     width: 50px;
     transition: 1s;
   }
@@ -90,11 +91,16 @@ export default {
 
   .option_top_content {
     display: flex;
-    max-width: 120px;
+    text-align: right;
   }
 
-  button {
+  .content_mode {
+    display: flex;
+    flex-flow: column;
     min-width: 130px;
   }
 
+  .content_x {
+    text-align: right;
+  } */
 </style>

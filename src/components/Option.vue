@@ -59,7 +59,24 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .option {
+    position: absolute;
+    width: 30vw;
+    text-align: right;
+    top: 0;
+    right: 0;
+    .option_top {
+      
+      .option_top_button {
+        width: 5vw;
+        margin: auto;
+        .option_top_button-img {
+          width: 100%;
+        }
+      }
+    }
+  }
   /* .option {
     display: flex;
     position: absolute;

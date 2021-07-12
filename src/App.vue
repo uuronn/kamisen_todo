@@ -60,9 +60,11 @@ export default {
       width: 15vw;
     }
     .todos {
-      width: 33vw;
+      width: 30vw;
       text-align: left;
-      margin: 0 auto;
+      margin: 30px auto;
+      // レスポンシブ
+      padding-left: 300px;
       li{
         .hoge {
           width: 50%;

@@ -50,9 +50,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
   .main {
     text-align: center;
+
+    h1 {
+      width: 300px;
+      background: red;
+    }
   }
   /* #app {
     display: flex;

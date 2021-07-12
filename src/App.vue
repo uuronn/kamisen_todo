@@ -2,12 +2,12 @@
   <div id="app">
     <div class="main">
       <h1>神の宣告</h1>
-      <input v-model="TodoName" placeholder="taskName">
+      <input v-model="TodoName" placeholder="taskName" class="main_input">
       <button @click="addTodo">追加</button>
       <ul class="todos">
         <li v-for="(todo,i) in todos" :key="i">
           <input type="checkbox">
-          <span>{{ todo }}</span>
+          <input type="text" :value="todo" class="hoge">
           <button clss="todos_button" @click="doneTodo">完了</button>
           <button class="todos_button" @click="deleteTodo(i)">削除</button>
         </li>
@@ -50,13 +50,24 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .main {
     text-align: center;
-
     h1 {
-      width: 300px;
-      background: red;
+      margin: 50px 0;
+    }
+    .main_input {
+      width: 15vw;
+    }
+    .todos {
+      width: 33vw;
+      text-align: left;
+      margin: 0 auto;
+      li{
+        .hoge {
+          width: 50%;
+        }
+      }
     }
   }
   /* #app {

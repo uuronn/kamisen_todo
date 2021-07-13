@@ -68,23 +68,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .option {
-    position: absolute;
-    width: 30vw;
-    top: 0;
-    right: 0;
-    .option_top {
-      .option_top_button {
-        width: 5vw;
-        margin-left: auto;
-        .option_top_button-img {
-          width: 100%;
-        }
-      }
-      .option_top_content {
-        display: inline;
-      }
-    }
-  }
+  // .option {
+  //   position: absolute;
+  //   width: 30vw;
+  //   top: 0;
+  //   right: 0;
+  //   .option_top {
+  //     .option_top_button {
+  //       width: 5vw;
+  //       margin-left: auto;
+  //       .option_top_button-img {
+  //         width: 100%;
+  //       }
+  //     }
+  //     .option_top_content {
+  //       display: inline;
+  //     }
+  //   }
+  // }
   
 </style>

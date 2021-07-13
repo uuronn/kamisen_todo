@@ -8,25 +8,32 @@
         placeholder="taskName"
       />
       <button class="main__button" @click="addTodo">追加</button>
+      <Todos msg="Todos_file"/>
     </div>
-    <Todos msg="Todos_file"/>
     <Option msg="option_file"/>
+    <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
 
 <script>
 import Option from './components/Option.vue';
 import Todos from './components/Todos.vue';
+import Evaluation from './components/Evaluation.vue'
 
 export default {
   name: "main",
+  props: {
+
+  },
   data() {
     return {
+      
     }
   },
   components: {
     Option,
-    Todos
+    Todos,
+    Evaluation
   },
   methods: {
     // todosに追加するメソッド
@@ -41,6 +48,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  #app {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    width: 55vw;
+  }
   // .main {
   //   text-align: center;
   //   h1 {

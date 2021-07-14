@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <button>評価</button>
+  <div class="evaluation">
+    <button class="evaluation__button">評価</button>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  div {
+  .evaluation {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,28 +14,22 @@
     bottom: -12vh;
     width: 30vw;
     height: 30vw;
-    pointer-events: none;
-    div:hover {
+    .evaluation:hover {
       z-index: 2;
     }
-    button {
+    .evaluation__button {
       width: 30%;
       height: 30%;
       border-radius: 50%;
-      transition: 0.5s;
       font-size: 40px;
       border: 1px solid #CC1669;
       pointer-events: auto;
+      font-size: 4vw;
+      font-family: 'HG正楷書体-PRO';
       background-color: #fff;
       animation-duration: 1s;
     }
-    // button:hover {
-    //   border: 240px solid;
-    //   width: 100%;
-    //   height: 100%;
-    //   transition: 0.5s;
-    // }
-    button:hover {
+    .evaluation__button:hover {
       animation-name: test1;
       animation-duration: 1s;
     }
@@ -51,21 +45,4 @@
       }
     }
   }
-  // div {
-  //   width: 50vh;
-  //   height: 50vh;
-  //     button {
-  //       width: 30%;
-  //       height: 30%;
-  //       background: #fff;
-  //       border-radius: 200px;
-  //       transition: 1s;
-  //     }
-  //     button:hover {
-  //       width: 60%;
-  //       height: 60%;
-  //       transition: 1s;
-  //     }
-  // }
-
 </style>

@@ -5,7 +5,7 @@
       <input
         class="main__input"
         v-model="TodoName"
-        placeholder="taskName"
+        placeholder=" taskName"
       />
       <button class="main__button" @click="addTodo">追加</button>
       <Todos msg="Todos_file"/>
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-
+      TodoName: ""
     }
   },
   components: {
@@ -47,45 +47,23 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   #app {
-    height: 100%;
+    height: 100vh;
     position: relative;
     overflow: hidden;
     .main {
       text-align: center;
+      .main__title {
+        margin: 10vh 0;
+        font-size: 4vw;
+        font-family: 'HG正楷書体-PRO';
+      }
+      .main__input,.main__button {
+        border: 1px solid;
+        border-radius: 3px;
+        background: #fff;
+      }
     }
   }
-    // display: flex;
-    // justify-content: space-between;
-    // margin-left: auto;
-    // width: 55vw;
-    // position: relative;
-    // overflow: hidden;
-
-    // .right {
-    //   position: absolute;
-    //   right: 0;
-    // }
-  // .main {
-  //   text-align: center;
-  //   h1 {
-  //     margin: 50px 0;
-  //   }
-  //   .main_input {
-  //     width: 15vw;
-  //     background: #fff;
-  //   }
-  //   .todos {
-  //     width: 30vw;
-  //     text-align: left;
-  //     margin: 30px auto;
-  //     padding-left: 300px;
-  //     li{
-  //       .hoge {
-  //         width: 50%;
-  //       }
-  //     }
-  //   }
-  // }
 </style>

@@ -73,6 +73,21 @@ export default {
     z-index: 1;
     right: 0;
     top: 0;
+    .option__button {
+      width: 50px;
+      margin-left: auto;
+      .option__image {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+    .option__content {
+      .option__mode,.option__x {
+        button {
+          background: #fff;
+        }
+      }
+    }
   }
   // .option {
   //   position: absolute;

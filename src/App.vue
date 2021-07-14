@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      
+
     }
   },
   components: {
@@ -55,6 +55,7 @@ export default {
     .main {
       text-align: center;
     }
+  }
     // display: flex;
     // justify-content: space-between;
     // margin-left: auto;
@@ -66,7 +67,6 @@ export default {
     //   position: absolute;
     //   right: 0;
     // }
-  }
   // .main {
   //   text-align: center;
   //   h1 {

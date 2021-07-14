@@ -70,6 +70,7 @@ export default {
 <style lang="scss" scoped>
   .option {
     position: absolute;
+    z-index: 1;
     right: 0;
     top: 0;
   }

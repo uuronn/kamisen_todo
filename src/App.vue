@@ -49,10 +49,23 @@ export default {
 
 <style lang="scss" scoped>
   #app {
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
-    width: 55vw;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    .main {
+      text-align: center;
+    }
+    // display: flex;
+    // justify-content: space-between;
+    // margin-left: auto;
+    // width: 55vw;
+    // position: relative;
+    // overflow: hidden;
+
+    // .right {
+    //   position: absolute;
+    //   right: 0;
+    // }
   }
   // .main {
   //   text-align: center;

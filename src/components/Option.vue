@@ -68,6 +68,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .option {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
   // .option {
   //   position: absolute;
   //   width: 30vw;

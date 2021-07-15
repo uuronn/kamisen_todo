@@ -8,26 +8,23 @@
         placeholder=" taskName"
       />
       <button class="main__button" @click="addTodo">追加</button>
-      <Todos msg="Todos_file"/>
+      <Todos msg="Todos_file" />
     </div>
-    <Option msg="option_file"/>
+    <Option msg="option_file" />
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
 
 <script>
-import Option from './components/Option.vue';
-import Todos from './components/Todos.vue';
+import Option from './components/Option.vue'
+import Todos from './components/Todos.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
   name: "main",
-  props: {
-
-  },
   data() {
     return {
-      TodoName: ""
+      TodoName: "",
     }
   },
   components: {

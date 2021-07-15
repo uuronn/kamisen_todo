@@ -17,10 +17,10 @@
 
 <script>
 export default {
-  name: "todos",
+  name: "Todos",
   data() {
     return {
-      todos: []
+      todos: [],
     }
   },
   methods: {
@@ -28,10 +28,9 @@ export default {
     deleteTodo(i) {
       this.todos.splice(i,1)
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>

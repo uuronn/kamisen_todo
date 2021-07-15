@@ -16,10 +16,10 @@
           <button class="option__diss" v-if="buttonMenu" @click="dissMode">煽りモード</button>
           <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
         </div>
-        <div class="option__x">
-          <button @click="aaa">aaaaa</button>
-          <button v-if="ok">bbbbbbbbb</button>
-          <button v-if="ok">cccccccccccccc</button>
+        <div class="option__sample">
+          <button @click="sampleAction">ボタン</button>
+          <button v-if="sampleShow">中身</button>
+          <button v-if="sampleShow">中身</button>
         </div>
       </div>
     </div>
@@ -28,13 +28,12 @@
 
 <script>
 export default {
-  name: "option",
   data() {
     return {
       mode: 'デフォルト',
       optionIsShow: false,
       buttonMenu: false,
-      ok: false
+      sampleShow: false
     }
   },
   methods: {
@@ -60,8 +59,8 @@ export default {
     openOption() {
       this.optionIsShow = !this.optionIsShow
     },
-    aaa() {
-      this.ok = !this.ok
+    sampleAction() {
+      this.sampleShow = !this.sampleShow
     }
   }
 }
@@ -73,16 +72,16 @@ export default {
     z-index: 1;
     right: 0;
     top: 0;
-    .option__button {
+    &__button {
       width: 50px;
       margin-left: auto;
-      .option__image {
+      &__image {
         width: 100%;
         border-radius: 10px;
       }
     }
-    .option__content {
-      .option__mode,.option__x {
+    &__content {
+      &__mode,&__sample {
         button {
           background: #fff;
         }

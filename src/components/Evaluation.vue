@@ -14,10 +14,10 @@
     bottom: -12vh;
     width: 30vw;
     height: 30vw;
-    .evaluation:hover {
+    &:hover {
       z-index: 2;
     }
-    .evaluation__button {
+    &__button {
       width: 30%;
       height: 30%;
       border-radius: 50%;
@@ -29,7 +29,7 @@
       background-color: #fff;
       animation-duration: 1s;
     }
-    .evaluation__button:hover {
+    &__button:hover {
       animation-name: test1;
       animation-duration: 1s;
     }

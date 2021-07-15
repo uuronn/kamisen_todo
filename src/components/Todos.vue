@@ -17,13 +17,13 @@
 
 <script>
 export default {
-  name: "Todos",
-  data() {
-    return {
-      todos: [],
-    }
+  props: {
+    todos: Array
   },
   methods: {
+    doneTodo() {
+
+    },
     // todosを削除するメソッド
     deleteTodo(i) {
       this.todos.splice(i,1)
@@ -33,4 +33,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.todos {
+  &__container {
+    background: green;
+    .todos__list {
+      background: red;
+      .todos__check {
+      }
+      .todos__name {
+        background: white;
+      }
+    }
+  }
+}
 </style>

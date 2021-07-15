@@ -4,12 +4,13 @@
       <h1 class="main__title">神の宣告</h1>
       <input
         class="main__input"
-        v-model="TodoName"
+        v-model="todoName"
         placeholder=" taskName"
       />
       <button class="main__button" @click="addTodo">追加</button>
-      <Todos msg="Todos_file" />
+      <Todos :todos="todos" />
     </div>
+    
     <Option msg="option_file" />
     <Evaluation msg="Evaluation_file"/>
   </div>
@@ -21,10 +22,10 @@ import Todos from './components/Todos.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
-  name: "main",
   data() {
     return {
-      TodoName: "",
+      todos: [],
+      todoName: "",
     }
   },
   components: {
@@ -35,9 +36,9 @@ export default {
   methods: {
     // todosに追加するメソッド
     addTodo() {
-      if (this.TodoName) {
-        this.todos.push(this.TodoName)
-        this.TodoName = ""
+      if (this.todoName) {
+        this.todos.push(this.todoName)
+        this.todoName = ""
       }
     },
   }
@@ -51,12 +52,12 @@ export default {
     overflow: hidden;
     .main {
       text-align: center;
-      .main__title {
+      &__title {
         margin: 10vh 0;
         font-size: 4vw;
         font-family: 'HG正楷書体-PRO';
       }
-      .main__input,.main__button {
+      &__input,&__button {
         border: 1px solid;
         border-radius: 3px;
         background: #fff;

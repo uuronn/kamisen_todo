@@ -8,9 +8,8 @@
         placeholder=" taskName"
       />
       <button class="main__button" @click="addTodo">追加</button>
-      <Todos :todos="todos" />
+      <Todos :todos="todos"/>
     </div>
-    
     <Option msg="option_file" />
     <Evaluation msg="Evaluation_file"/>
   </div>
@@ -46,22 +45,29 @@ export default {
 </script>
 
 <style lang="scss">
-  #app {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    .main {
-      text-align: center;
-      &__title {
-        margin: 10vh 0;
-        font-size: 4vw;
-        font-family: 'HG正楷書体-PRO';
-      }
-      &__input,&__button {
-        border: 1px solid;
-        border-radius: 3px;
-        background: #fff;
-      }
+// @import "./src/assets/scss/common.scss";
+$main-color: #fff;
+$main-border: 1px solid;
+$main-radius: 3px;
+
+#app {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  .main {
+    text-align: center;
+    // background: $test-color;
+    &__title {
+      margin: 10vh 0;
+      font-size: 4vw;
+      font-family: 'HG正楷書体-PRO';
+    }
+
+    &__input,&__button {
+      border: $main-border;
+      border-radius: $main-radius;
+      background: $main-color;
     }
   }
+}
 </style>

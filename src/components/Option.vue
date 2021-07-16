@@ -17,9 +17,9 @@
           <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
         </div>
         <div class="option__sample">
-          <button @click="sampleAction">ボタン</button>
-          <button v-if="sampleShow">中身</button>
-          <button v-if="sampleShow">中身</button>
+          <button class="option__btn" @click="sampleAction">ボタン</button>
+          <button class="option__show" v-if="sampleShow">中身</button>
+          <button class="option__show" v-if="sampleShow">中身</button>
         </div>
       </div>
     </div>
@@ -41,24 +41,31 @@ export default {
     switchButton() {
         this.buttonMenu = !this.buttonMenu
     },
+
     // デフォルトモードにするメソッド
     defaultMode() {
       this.mode = "デフォルト"
       this.buttonMenu = false
     },
+
     // 煽りモードにするメソッド
     dissMode() {
       this.mode = "煽り"
       this.buttonMenu = false
     },
+
     // 筋トレモードにするメソッド
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
     },
+    
+    // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
       this.optionIsShow = !this.optionIsShow
     },
+
+    // test
     sampleAction() {
       this.sampleShow = !this.sampleShow
     }
@@ -67,44 +74,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .option {
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    top: 0;
-    &__button {
-      width: 50px;
-      margin-left: auto;
-      &__image {
-        width: 100%;
-        border-radius: 10px;
-      }
-    }
-    &__content {
-      &__mode,&__sample {
-        button {
-          background: #fff;
-        }
-      }
-    }
+
+
+.option {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+
+  &__button {
+    width: 50px;
+    margin-left: auto;
   }
-  // .option {
-  //   position: absolute;
-  //   width: 30vw;
-  //   top: 0;
-  //   right: 0;
-  //   .option_top {
-  //     .option_top_button {
-  //       width: 5vw;
-  //       margin-left: auto;
-  //       .option_top_button-img {
-  //         width: 100%;
-  //       }
-  //     }
-  //     .option_top_content {
-  //       display: inline;
-  //     }
-  //   }
-  // }
+
+  &__image {
+      width: 100%;
+      border-radius: 10px;
+  }
   
+  &__content {}
+
+  &__mode,&__sample {}
+
+  &__btn {
+    background: #fff;
+  }
+}
 </style>

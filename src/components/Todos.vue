@@ -15,8 +15,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     todos: Array
   },
@@ -29,21 +31,35 @@ export default {
       this.todos.splice(i,1)
     }
   },
-}
+  data() {
+    return {
+      num: ''
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
+$todos__color: #fff;
+$todos__border: 1px solid;
+$todos__radius: 3px;
+
 .todos {
   &__container {
-    background: green;
-    .todos__list {
-      background: red;
-      .todos__check {
-      }
-      .todos__name {
-        background: white;
-      }
-    }
+
+  }
+
+  &__list {
+    
+  }
+
+  &__check {
+  }
+  
+  &__name {
+    border-radius: $todos__radius;
+    border: $todos__border;
+    background: $todos__color;
   }
 }
 </style>

@@ -7,7 +7,7 @@
         v-model="todoName"
         placeholder=" taskName"
       />
-      <button class="main__button" @click="addTodo">追加</button>
+      <button class="main__add" @click="addTodo">追加</button>
       <Todos :todos="todos"/>
     </div>
     <Option msg="option_file" />
@@ -47,8 +47,11 @@ export default {
 <style lang="scss">
 // @import "./src/assets/scss/common.scss";
 $main-color: #fff;
-$main-border: 1px solid;
-$main-radius: 3px;
+$main-border: 2px solid;
+$main-radius: 4px;
+$main-hover: #eee;
+$main-mg2: 2px;
+
 
 #app {
   height: 100vh;
@@ -58,15 +61,40 @@ $main-radius: 3px;
     text-align: center;
     // background: $test-color;
     &__title {
-      margin: 10vh 0;
-      font-size: 4vw;
+      margin: 5vw auto;
+      font-size: 5vw;
       font-family: 'HG正楷書体-PRO';
+
+      @media screen and (max-width: 720px) {
+        margin: 72px auto 10vw auto;
+        width: 10vw;
+        font-size: 40px;
+      }
     }
 
-    &__input,&__button {
+    &__input {
       border: $main-border;
       border-radius: $main-radius;
       background: $main-color;
+      margin: $main-mg2;
+      width: 15vw;
+      min-width: 196px;
+
+      &:hover {
+        background: #eee;
+      }
+    }
+
+    &__add {
+      border: $main-border;
+      border-radius: $main-radius;
+      background: $main-color;
+      margin: $main-mg2;
+      width: 48px;
+      
+      &:hover {
+        background: #eee;
+      }
     }
   }
 }

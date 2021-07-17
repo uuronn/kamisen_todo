@@ -8,7 +8,7 @@
           :value="todo"
           type="text"
         />
-        <button clss="todos__done" @click="doneTodo">完了</button>
+        <button class="todos__done" @click="doneTodo">完了</button>
         <button class="todos__delete" @click="deleteTodo(i)">削除</button>
       </li>
     </ul>
@@ -40,9 +40,11 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-$todos__color: #fff;
-$todos__border: 1px solid;
-$todos__radius: 3px;
+$todos-color: #fff;
+$todos-border: 2px solid;
+$todos-radius: 4px;
+$todos-hover: #eee;
+$todos-mg2: 2px;
 
 .todos {
   &__container {
@@ -57,9 +59,39 @@ $todos__radius: 3px;
   }
   
   &__name {
-    border-radius: $todos__radius;
-    border: $todos__border;
-    background: $todos__color;
+    border-radius: $todos-radius;
+    border: $todos-border;
+    background: $todos-color;
+    margin: $todos-mg2;
+    text-align: center;
+
+    &:hover {
+      background: $todos-hover;
+    }
+  }
+
+  &__done {
+    border: $todos-border;
+    border-radius: $todos-radius;
+    background: $todos-color;
+    margin: $todos-mg2;
+    width: 48px;
+
+    &:hover {
+      background: $todos-hover;
+    }
+  }
+
+  &__delete {
+    border: $todos-border;
+    border-radius: $todos-radius;
+    background: $todos-color;
+    margin: $todos-mg2;
+    width: 48px;
+
+    &:hover {
+      background: $todos-hover;
+    }
   }
 }
 </style>

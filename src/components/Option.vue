@@ -65,7 +65,7 @@ export default {
       this.optionIsShow = !this.optionIsShow
     },
 
-    // test
+    // sample
     sampleAction() {
       this.sampleShow = !this.sampleShow
     }
@@ -74,27 +74,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .option {
   position: absolute;
   z-index: 1;
-  right: 0;
-  top: 0;
+  right: 0.5vw;
+  top: 0.5vw;
+  text-align: right;
+
+  &__container {
+  }
 
   &__button {
     width: 50px;
     margin-left: auto;
+    &:hover {
+    }
   }
 
   &__image {
       width: 100%;
       border-radius: 10px;
+      transition: 1s;
+
+      &:hover {
+        border-radius: 30px;
+      }
   }
   
-  &__content {}
+  &__content {
+    display: flex;
+  }
 
-  &__mode,&__sample {}
+  &__mode {
+    width: 200px;
+    display: flex;
+    flex-flow: column;
+    background: #fff;
+  }
+  
+  &__sample {
+    width: 200px;
+    display: flex;
+    flex-flow: column;
+  }
 
   &__btn {
     background: #fff;

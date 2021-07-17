@@ -1,48 +1,79 @@
 <template>
   <div class="evaluation">
-    <button class="evaluation__button">評価</button>
+    <div class="evaluation__container">
+      <button class="evaluation__button">評価</button>
+    </div>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    
+  }
+}
+</script>
+
+
 <style lang="scss" scoped>
-  .evaluation {
+.evaluation {
+  
+  &__container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     right: -6vw;
-    bottom: -12vh;
+    bottom: -6vw;
     width: 30vw;
     height: 30vw;
+
+    @media screen and (max-width: 720px) {
+      
+    }
+
+    @media screen and (max-height: 1080) {
+      
+    }
+
+  }
+
+  &__button {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    font-size: 4vw;
+    border: 2px solid;
+    background-color: #fff;
+    font-family: 'HG正楷書体-PRO';
+
+    @media screen and (max-width: 720px) {
+      
+    }
+
     &:hover {
-      z-index: 2;
-    }
-    &__button {
-      width: 30%;
-      height: 30%;
-      border-radius: 50%;
-      font-size: 40px;
-      border: 1px solid #CC1669;
-      pointer-events: auto;
-      font-size: 4vw;
-      font-family: 'HG正楷書体-PRO';
-      background-color: #fff;
+
+      animation-name: evaluation;
       animation-duration: 1s;
-    }
-    &__button:hover {
-      animation-name: test1;
-      animation-duration: 1s;
-    }
-    @keyframes test1 {
-      0% {
-        width: 30%;
-        height: 30%;
-      }
-      50% {
-        width: 100%;
-        height: 100%;
-        font-size: 100px;
+
+      @keyframes evaluation {
+        0% {
+          width: 50%;
+          height: 50%;
+        }
+
+        50% {
+          width: 100%;
+          height: 100%;
+          font-size: 8vw;
+        }
       }
     }
   }
+}
 </style>

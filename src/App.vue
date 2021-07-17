@@ -52,21 +52,21 @@ $main-radius: 4px;
 $main-hover: #eee;
 $main-mg2: 2px;
 
-
 #app {
   height: 100vh;
   position: relative;
   overflow: hidden;
+
   .main {
     text-align: center;
-    // background: $test-color;
+
     &__title {
       margin: 5vw auto;
       font-size: 5vw;
       font-family: 'HG正楷書体-PRO';
 
       @media screen and (max-width: 720px) {
-        margin: 72px auto 10vw auto;
+        margin: 24px auto 10vw auto;
         width: 10vw;
         font-size: 40px;
       }

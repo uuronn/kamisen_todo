@@ -20,7 +20,12 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    todos: Array
+    todos: Array,
+  },
+  data() {
+    return {
+      
+    }
   },
   methods: {
     doneTodo() {
@@ -31,11 +36,6 @@ export default Vue.extend({
       this.todos.splice(i,1)
     }
   },
-  data() {
-    return {
-      num: ''
-    }
-  }
 })
 </script>
 

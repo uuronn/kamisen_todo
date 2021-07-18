@@ -5,12 +5,12 @@
       <input
         class="main__input"
         v-model="todoName"
-        placeholder=" taskName"
+        placeholder= "data1"
       />
       <button class="main__add" @click="addTodo">追加</button>
       <Todos :todos="todos"/>
     </div>
-    <Option msg="option_file" />
+    <Option :data1="placeholder" />
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
     return {
       todos: [],
       todoName: "",
+      data: "fff"
     }
   },
   components: {

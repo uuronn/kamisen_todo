@@ -27,13 +27,22 @@
 </template>
 
 <script>
+
 export default {
+  props: {
+    data1: {
+      type: String,
+      default: 'abc',
+      required: true
+    }
+  },
   data() {
     return {
       mode: 'デフォルト',
       optionIsShow: false,
       buttonMenu: false,
-      sampleShow: false
+      sampleShow: false,
+      
     }
   },
   methods: {
@@ -52,6 +61,7 @@ export default {
     dissMode() {
       this.mode = "煽り"
       this.buttonMenu = false
+      this.data1 = "はよ仕事しろ"
     },
 
     // 筋トレモードにするメソッド
@@ -74,6 +84,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$option-color: #fff;
+$option-border: 2px solid;
+$option-radius: 4px;
+$option-hover: #eee;
+$option-mg2: 2px;
+
 .option {
   position: absolute;
   z-index: 1;
@@ -94,7 +110,7 @@ export default {
   &__image {
       width: 100%;
       border-radius: 10px;
-      transition: 1s;
+      transition: 0.5s;
 
       &:hover {
         border-radius: 30px;
@@ -106,20 +122,38 @@ export default {
   }
 
   &__mode {
-    width: 200px;
+    width: 144px;
     display: flex;
     flex-flow: column;
-    background: #fff;
+
+    & button {
+      background: $option-color;
+      border-radius: $option-radius;
+      border: $option-border;
+      margin: $option-mg2;
+
+      &:hover {
+        background: $option-hover;
+      }
+    }
   }
   
   &__sample {
-    width: 200px;
+    // widthは確定ではない
+    width: 80px;
     display: flex;
     flex-flow: column;
   }
 
-  &__btn {
-    background: #fff;
+  & button {
+    background: $option-color;
+    border-radius: $option-radius;
+    border: $option-border;
+    margin: $option-mg2;
+
+    &:hover {
+      background: $option-hover;
+    }
   }
 }
 </style>

@@ -27,7 +27,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
 
@@ -38,7 +37,6 @@ export default {
       optionIsShow: false,
       buttonMenu: false,
       sampleShow: false,
-      
     }
   },
   methods: {
@@ -51,7 +49,7 @@ export default {
     defaultMode() {
       this.mode = "デフォルト"
       this.buttonMenu = false
-      this.$emit('changePlaceholder', "デフォルト")
+      this.$emit('changePlaceholder', "taskName")
     },
 
     // 煽りモードにするメソッド
@@ -65,7 +63,7 @@ export default {
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
-      this.$emit('changePlaceholder', "きんにく")
+      this.$emit('changePlaceholder', "筋トレしてください")
     },
     
     // ハンバーガーメニューの中身を表示させるメソッド

@@ -2,6 +2,7 @@
   <div id="app">
     <div class="main">
       <h1 class="main__title">神の宣告</h1>
+      {{ parent_num }}
       <input
         class="main__input"
         v-model="todoName"
@@ -25,8 +26,7 @@ export default {
     return {
       todos: [],
       todoName: "",
-      data: "fff",
-      placeholder: "デフォルト"
+      placeholder: "taskName"
     }
   },
   components: {

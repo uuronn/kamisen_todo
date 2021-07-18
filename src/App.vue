@@ -2,15 +2,16 @@
   <div id="app">
     <div class="main">
       <h1 class="main__title">神の宣告</h1>
+      {{ parent_num }}
       <input
         class="main__input"
         v-model="todoName"
-        placeholder= "data1"
+        :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
       <Todos :todos="todos"/>
     </div>
-    <Option :data1="placeholder" />
+    <Option @my-click="placeholder = $event" />
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
@@ -25,7 +26,7 @@ export default {
     return {
       todos: [],
       todoName: "",
-      data: "fff"
+      placeholder: " taskName"
     }
   },
   components: {

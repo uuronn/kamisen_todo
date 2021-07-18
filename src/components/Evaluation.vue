@@ -57,7 +57,7 @@ export default {
     }
 
     &:hover {
-
+      background: #eee;
       animation-name: evaluation;
       animation-duration: 1s;
 

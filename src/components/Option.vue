@@ -1,7 +1,6 @@
 <template>
   <div class="option">
     <h3 class="option__announce">{{ mode }}モード</h3>
-    <div class="option__container">
       <div class="option__button" @click="openOption" >
         <img
           class="option__image"
@@ -22,14 +21,12 @@
           <button class="option__show" v-if="sampleShow">中身</button>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    hoge: Array
   },
   data() {
     return {
@@ -49,21 +46,21 @@ export default {
     defaultMode() {
       this.mode = "デフォルト"
       this.buttonMenu = false
-      this.$emit("my-click","taskName")
+      this.$emit("clickModes"," taskName")
     },
 
     // 煽りモードにするメソッド
     dissMode() {
       this.mode = "煽り"
       this.buttonMenu = false
-      this.$emit("my-click","はよ仕事しろ")
+      this.$emit("clickModes"," はよ仕事しろ")
     },
 
     // 筋トレモードにするメソッド
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
-      this.$emit("my-click","筋トレしてください")
+      this.$emit("clickModes"," 終わらせないと筋トレだよ")
     },
     
     // ハンバーガーメニューの中身を表示させるメソッド
@@ -93,34 +90,35 @@ $option-mg2: 2px;
   top: 0.5vw;
   text-align: right;
 
-  &__container {
-  }
-
   &__button {
     width: 50px;
     margin-left: auto;
-    &:hover {
-    }
   }
 
   &__image {
-      width: 100%;
-      border-radius: 10px;
+    width: 100%;
+      border-radius: 8px;
+      vertical-align:top;
       transition: 0.5s;
 
       &:hover {
-        border-radius: 30px;
+        border-radius: 32px;
+        transform:rotate(810deg);
       }
   }
   
   &__content {
     display: flex;
+    animation-name: test;
+    animation-direction: 1s;
+    transition: all 1s;
   }
 
   &__mode {
     width: 144px;
     display: flex;
     flex-flow: column;
+    transition: 1s;
 
     & button {
       background: $option-color;

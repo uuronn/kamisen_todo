@@ -2,7 +2,6 @@
   <div id="app">
     <div class="main">
       <h1 class="main__title">神の宣告</h1>
-      {{ parent_num }}
       <input
         class="main__input"
         v-model="todoName"
@@ -11,7 +10,7 @@
       <button class="main__add" @click="addTodo">追加</button>
       <Todos :todos="todos"/>
     </div>
-    <Option @my-click="placeholder = $event" />
+    <Option @clickModes="placeholder = $event" />
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
@@ -26,7 +25,7 @@ export default {
     return {
       todos: [],
       todoName: "",
-      placeholder: " taskName"
+      placeholder: " taskName",
     }
   },
   components: {
@@ -37,11 +36,19 @@ export default {
   methods: {
     // todosに追加するメソッド
     addTodo() {
+      const timeMessage = "時間切れ"
+      function announceTime() {
+        confirm(timeMessage)
+      }
+
       if (this.todoName) {
         this.todos.push(this.todoName)
         this.todoName = ""
+        setTimeout(announceTime,1000)
       }
-    },
+    }
+  },
+  computed: {
   }
 }
 </script>

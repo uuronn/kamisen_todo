@@ -10,7 +10,7 @@
       <button class="main__add" @click="addTodo">追加</button>
       <Todos :todos="todos"/>
     </div>
-    <Option />
+    <Option @changePlaceholder="changePlaceholder" />
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
@@ -42,6 +42,9 @@ export default {
         this.todoName = ""
       }
     },
+    changePlaceholder(value) {
+      this.placeholder = value
+    }
   }
 }
 </script>

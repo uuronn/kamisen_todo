@@ -30,11 +30,7 @@
 
 export default {
   props: {
-    data1: {
-      type: String,
-      default: 'abc',
-      required: true
-    }
+
   },
   data() {
     return {
@@ -55,6 +51,7 @@ export default {
     defaultMode() {
       this.mode = "デフォルト"
       this.buttonMenu = false
+      this.$parent.placeholder = 'デフォルト';
     },
 
     // 煽りモードにするメソッド
@@ -62,12 +59,14 @@ export default {
       this.mode = "煽り"
       this.buttonMenu = false
       this.data1 = "はよ仕事しろ"
+      this.$parent.placeholder = 'はよ仕事しろ';
     },
 
     // 筋トレモードにするメソッド
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
+      this.$parent.placeholder = 'きんにく';
     },
     
     // ハンバーガーメニューの中身を表示させるメソッド

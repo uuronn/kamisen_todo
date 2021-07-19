@@ -1,7 +1,9 @@
 <template>
   <div class="evaluation">
     <div class="evaluation__container">
-      <button class="evaluation__button">評価</button>
+      <button class="evaluation__button">
+        評価
+      </button>
     </div>
   </div>
 </template>
@@ -32,15 +34,6 @@ export default {
     bottom: -6vw;
     width: 30vw;
     height: 30vw;
-
-    @media screen and (max-width: 720px) {
-      
-    }
-
-    @media screen and (max-height: 1080) {
-      
-    }
-
   }
 
   &__button {
@@ -51,10 +44,6 @@ export default {
     border: 2px solid;
     background-color: #fff;
     font-family: 'HG正楷書体-PRO';
-
-    @media screen and (max-width: 720px) {
-      
-    }
 
     &:hover {
       background: #eee;

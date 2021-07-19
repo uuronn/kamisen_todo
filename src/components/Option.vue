@@ -1,7 +1,7 @@
 <template>
   <div class="option">
     <h3 class="option__announce">{{ mode }}モード</h3>
-      <div class="option__button" @click="openOption" >
+      <div class="option__button" @click="openOption">
         <img
           class="option__image"
           src="../assets/option_button-img.png"
@@ -77,12 +77,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$option-color: #fff;
-$option-border: 2px solid;
-$option-radius: 4px;
-$option-hover: #eee;
-$option-mg2: 2px;
-
 .option {
   position: absolute;
   z-index: 1;
@@ -103,7 +97,7 @@ $option-mg2: 2px;
 
       &:hover {
         border-radius: 32px;
-        transform:rotate(810deg);
+        transform:rotate(900deg);
       }
   }
   
@@ -121,13 +115,13 @@ $option-mg2: 2px;
     transition: 1s;
 
     & button {
-      background: $option-color;
-      border-radius: $option-radius;
-      border: $option-border;
-      margin: $option-mg2;
+      border-radius: $button-radius;
+      border: $button-border;
+      margin: $mg-2;
+      background: #fff;
 
       &:hover {
-        background: $option-hover;
+        background: $button-hover;
       }
     }
   }
@@ -140,13 +134,13 @@ $option-mg2: 2px;
   }
 
   & button {
-    background: $option-color;
-    border-radius: $option-radius;
-    border: $option-border;
-    margin: $option-mg2;
+    background: #fff;
+    border-radius: $button-radius;
+    border: $button-border;
+    margin: $mg-2;
 
     &:hover {
-      background: $option-hover;
+      background: $button-hover;
     }
   }
 }

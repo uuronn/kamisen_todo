@@ -8,7 +8,7 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <Todos :todos="todos"/>
+      <Todos :todos="todos" />
     </div>
     <Option @clickModes="placeholder = $event" />
     <Evaluation msg="Evaluation_file"/>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+// @clickTest="doneShow = $event"
 import Option from './components/Option.vue'
 import Todos from './components/Todos.vue'
 import Evaluation from './components/Evaluation.vue'
@@ -36,31 +37,26 @@ export default {
   methods: {
     // todosに追加するメソッド
     addTodo() {
-      const timeMessage = "時間切れ"
-      function announceTime() {
-        confirm(timeMessage)
-      }
+      // const timeMessage = "時間切れ"
+      // function announceTime() {
+      //   confirm(timeMessage)
+      // }
 
       if (this.todoName) {
-        this.todos.push(this.todoName)
+        this.todos.push({
+          todoName: this.todoName,
+          // doneShow: false
+        })
+
         this.todoName = ""
-        setTimeout(announceTime,1000)
+        // setTimeout(announceTime,1000)
       }
     }
   },
-  computed: {
-  }
 }
 </script>
 
 <style lang="scss">
-// @import "./src/assets/scss/common.scss";
-$main-color: #fff;
-$main-border: 2px solid;
-$main-radius: 4px;
-$main-hover: #eee;
-$main-mg2: 2px;
-
 #app {
   height: 100vh;
   position: relative;
@@ -82,27 +78,27 @@ $main-mg2: 2px;
     }
 
     &__input {
-      border: $main-border;
-      border-radius: $main-radius;
-      background: $main-color;
-      margin: $main-mg2;
       width: 15vw;
       min-width: 196px;
+      border-radius: $button-radius;
+      border: $button-border;
+      margin: $mg-2;
+      background: #fff;
 
       &:hover {
-        background: #eee;
+        background: $button-hover;
       }
     }
 
     &__add {
-      border: $main-border;
-      border-radius: $main-radius;
-      background: $main-color;
-      margin: $main-mg2;
       width: 48px;
+      border-radius: $button-radius;
+      border: $button-border;
+      margin: $mg-2;
+      background: #fff;
       
       &:hover {
-        background: #eee;
+        background: $button-hover;
       }
     }
   }

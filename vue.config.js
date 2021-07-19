@@ -1,9 +1,9 @@
-// module.exports = {
-//   css: {
-//     loaderOptions: {
-//       scss: {
-//         prependData: `@import ".src/assets/scss/common.scss";`
-//       }
-//     },
-//   },
-// }
+module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@import "@/assets/scss/common.scss";`
+      },
+    }
+  }
+}

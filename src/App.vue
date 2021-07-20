@@ -37,7 +37,8 @@ export default {
     addTodo() {
       if (this.todoName) {
         this.todos.push({
-          todoName: this.todoName
+          todoName: this.todoName,
+          test: true
         })
         this.todoName = ""
       }

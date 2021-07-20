@@ -2,14 +2,14 @@
   <div class="todos">
     <ul class="todos__container">
       <li class="todos__list" v-for="(todo,i) in todos" :key="i">
-        <span>完了</span>
+        <span v-if="todo.test">{{ "完了" }}</span>
         <input class="todos__check" type="checkbox">
         <input
           class="todos__name"
           :value="todo.todoName"
           type="text"
         />
-        <button class="todos__done" @click="doneTodo">完了</button>
+        <button class="todos__done" @click="doneTodo(i,todo.test)">完了</button>
         <button class="todos__delete" @click="deleteTodo(i)">削除</button>
       </li>
     </ul>
@@ -22,20 +22,18 @@ import Vue from 'vue'
 export default Vue.extend({
   props: {
     todos: Array,
-    todoName: Array
-  },
-  data() {
-    return {
-    }
   },
   methods: {
-    doneTodo() {
 
-    },
+    // 完了を表示させるメソッド
+    doneTodo(i) {
+    this.todos[i].test = true
+  },
 
     // todosを削除するメソッド
     deleteTodo(i) {
       this.todos.splice(i,1)
+      console.log(i)
     },
   }
 })

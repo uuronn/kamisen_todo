@@ -9,7 +9,7 @@
           :value="todo.todoName"
           type="text"
         />
-        <button class="todos__done" @click="doneTodo(todo.test)">完了</button>
+        <button class="todos__done" @click="doneTodo(i,todo.test)">完了</button>
         <button class="todos__delete" @click="deleteTodo(i)">削除</button>
       </li>
     </ul>
@@ -24,11 +24,11 @@ export default Vue.extend({
     todos: Array,
   },
   methods: {
+
     // 完了を表示させるメソッド
-    doneTodo(test) {
-      test = !test
-      console.log(test)
-    },
+    doneTodo(i) {
+    this.todos[i].test = true
+  },
 
     // todosを削除するメソッド
     deleteTodo(i) {

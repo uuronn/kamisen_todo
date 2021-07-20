@@ -16,7 +16,6 @@
 </template>
 
 <script>
-// @clickTest="doneShow = $event"
 import Option from './components/Option.vue'
 import Todos from './components/Todos.vue'
 import Evaluation from './components/Evaluation.vue'
@@ -35,21 +34,12 @@ export default {
     Evaluation
   },
   methods: {
-    // todosに追加するメソッド
     addTodo() {
-      // const timeMessage = "時間切れ"
-      // function announceTime() {
-      //   confirm(timeMessage)
-      // }
-
       if (this.todoName) {
         this.todos.push({
-          todoName: this.todoName,
-          // doneShow: false
+          todoName: this.todoName
         })
-
         this.todoName = ""
-        // setTimeout(announceTime,1000)
       }
     }
   },

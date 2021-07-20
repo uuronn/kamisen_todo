@@ -26,8 +26,6 @@
 
 <script>
 export default {
-  props: {
-  },
   data() {
     return {
       mode: 'デフォルト',
@@ -71,8 +69,8 @@ export default {
     // sample
     sampleAction() {
       this.sampleShow = !this.sampleShow
+      }
     }
-  }
 }
 </script>
 

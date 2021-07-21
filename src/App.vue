@@ -38,7 +38,8 @@ export default {
       if (this.todoName) {
         this.todos.push({
           todoName: this.todoName,
-          test: false
+          done: false,
+          time: 10
         })
         this.todoName = ""
       }

@@ -16,7 +16,7 @@
           <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
         </div>
         <div class="option__sample">
-          <button class="option__btn" @click="sampleAction">ボタン</button>
+          <button class="option__btn" @click="sampleAction">テストボタン</button>
           <button class="option__show" v-if="sampleShow">中身</button>
           <button class="option__show" v-if="sampleShow">中身</button>
         </div>
@@ -126,7 +126,7 @@ export default {
   
   &__sample {
     // widthは確定ではない
-    width: 80px;
+    width: 120px;
     display: flex;
     flex-flow: column;
   }

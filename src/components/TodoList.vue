@@ -18,12 +18,10 @@ export default Vue.extend({
     TodoItem
   },
   methods: {
-    }
+  }
 })
 </script>
 
 <style lang="scss" scoped>
-.todos {
-  background: red;
-}
+
 </style>

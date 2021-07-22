@@ -113,10 +113,10 @@ export default {
     transition: 1s;
 
     & button {
-      border-radius: $button-radius;
-      border: $button-border;
-      margin: $mg-2;
-      background: #fff;
+      border-radius: 4px;
+      border: 2px solid;
+      margin: 2px;
+      background: $button-back;
 
       &:hover {
         background: $button-hover;
@@ -132,10 +132,10 @@ export default {
   }
 
   & button {
-    background: #fff;
-    border-radius: $button-radius;
-    border: $button-border;
-    margin: $mg-2;
+    background: $button-back;
+    border-radius: 4px;
+    border: 2px solid;
+    margin: 2px;
 
     &:hover {
       background: $button-hover;

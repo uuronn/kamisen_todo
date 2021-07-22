@@ -76,7 +76,7 @@ export default {
       border-radius: 4px;
       border: 2px solid;
       margin: 2px;
-      background: #fff;
+      background: $button-back;
 
       &:hover {
         background: $button-hover;
@@ -88,8 +88,8 @@ export default {
       border-radius: 4px;
       border: 2px solid;
       margin: 2px;
-      background: #fff;
-      
+      background: $button-back;
+
       &:hover {
         background: $button-hover;
       }

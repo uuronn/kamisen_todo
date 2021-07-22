@@ -29,7 +29,7 @@ export default {
     deleteTodo() {
       clearInterval(intervalTimer)
       this.$destroy();
-      this.$el.parentNode.removeChild(this.$el);
+      this.$el.parentNode.removeChild(this.$el)
     },
 
     // タイマー開始ボタン
@@ -47,11 +47,11 @@ export default {
 <style lang="scss" scoped>
 .todos {
   &__name {
-    border-radius: $button-radius;
-    border: $button-border;
+    border-radius: 4px;
+    border: 2px solid;
     text-align: center;
-    margin: $mg-2;
-    background: #fff;
+    margin: 2px;
+    background: $button-back;
 
     &:hover {
       background: $button-hover;
@@ -60,10 +60,10 @@ export default {
 
   &__done {
     width: 48px;
-    border: $button-border;
-    border-radius: $button-radius;
-    margin: $mg-2;
-    background: #fff;
+    border: 2px solid;
+    border-radius: 4px;
+    margin: 2px;
+    background: $button-back;
 
     &:hover {
       background: $button-hover;
@@ -72,10 +72,10 @@ export default {
 
   &__delete {
     width: 48px;
-    border: $button-border;
-    border-radius: $button-radius;
-    margin: $mg-2;
-    background: #fff;
+    border: 2px solid;
+    border-radius: 4px;
+    margin: 2px;
+    background: $button-back;
 
     &:hover {
       background: $button-hover;
@@ -84,14 +84,14 @@ export default {
 
   &__start {
     width: 48px;
-    border: $button-border;
-    border-radius: $button-radius;
-    margin: $mg-2;
-    background: #fff;
+    border: 2px solid;
+    border-radius: 4px;
+    margin: 2px;
+    background: $button-back;
 
     &:hover {
-      background: #fff;
-    }
+      background: $button-hover;
+      }
   }
 }
 </style>

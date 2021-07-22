@@ -33,10 +33,10 @@
     border-radius: 50%;
     font-size: 4vw;
     border: 2px solid;
-    background-color: #fff;
+    background-color: $button-back;
 
     &:hover {
-      background: #eee;
+      background: $button-hover;
       animation-name: evaluation;
       animation-duration: 1s;
 

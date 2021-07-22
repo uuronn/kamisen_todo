@@ -95,7 +95,7 @@ export default {
 
       &:hover {
         border-radius: 32px;
-        transform:rotate(900deg);
+        transform:rotate(180deg);
       }
   }
   

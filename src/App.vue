@@ -8,7 +8,7 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <Todos :todos="todos" />
+      <TodoList :todos="todos" />
     </div>
     <Option @clickModes="placeholder = $event" />
     <Evaluation msg="Evaluation_file"/>
@@ -17,7 +17,7 @@
 
 <script>
 import Option from './components/Option.vue'
-import Todos from './components/Todos.vue'
+import TodoList from './components/TodoList.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
@@ -30,7 +30,7 @@ export default {
   },
   components: {
     Option,
-    Todos,
+    TodoList,
     Evaluation
   },
   methods: {
@@ -42,7 +42,6 @@ export default {
           timer: 10,
           timerOpen: false,
           startOpen: true
-
         })
         this.todoName = ""
       }
@@ -74,9 +73,9 @@ export default {
     &__input {
       width: 15vw;
       min-width: 196px;
-      border-radius: $button-radius;
-      border: $button-border;
-      margin: $mg-2;
+      border-radius: 4px;
+      border: 2px solid;
+      margin: 2px;
       background: #fff;
 
       &:hover {
@@ -86,14 +85,15 @@ export default {
 
     &__add {
       width: 48px;
-      border-radius: $button-radius;
-      border: $button-border;
-      margin: $mg-2;
+      border-radius: 4px;
+      border: 2px solid;
+      margin: 2px;
       background: #fff;
       
       &:hover {
         background: $button-hover;
       }
+
     }
   }
 }

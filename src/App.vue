@@ -8,7 +8,7 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <Todos :todos="todos" />
+      <TodoList :todos="todos" />
     </div>
     <Option @clickModes="placeholder = $event" />
     <Evaluation msg="Evaluation_file"/>
@@ -17,7 +17,7 @@
 
 <script>
 import Option from './components/Option.vue'
-import Todos from './components/Todos.vue'
+import TodoList from './components/TodoList.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
@@ -30,7 +30,7 @@ export default {
   },
   components: {
     Option,
-    Todos,
+    TodoList,
     Evaluation
   },
   methods: {

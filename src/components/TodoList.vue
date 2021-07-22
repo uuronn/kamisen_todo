@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Todo from './Todo.vue'
+import Todo from './TodoItem.vue'
 
 export default {
   components: {

@@ -6,9 +6,9 @@
       :value="todo.todoName"
       type="text"
     />
-    <button class="todos__done" @click="doneTodo()">完了</button>
-    <button class="todos__delete" @click="deleteTodo()">削除</button>
-    <button class="todos__start" v-if="todo.startOpen" @click="startTodo()">開始</button>
+    <button class="todos__done" @click="doneTodo">完了</button>
+    <button class="todos__delete" @click="deleteTodo">削除</button>
+    <button class="todos__start" v-if="todo.startOpen" @click="startTodo">開始</button>
     <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
   </li>
 </template>
@@ -21,28 +21,29 @@ export default {
     todo: {}
   },
   methods: {
-    // 完了させるメソッド
     doneTodo() {
+      // TODO: emitで実装し直す
       this.todo.done = true
     },
-
-    // todosを削除するメソッド
     deleteTodo() {
       clearInterval(intervalTimer)
+      // TODO: emitで実装し直す
       this.$destroy()
       this.$el.parentNode.removeChild(this.$el)
     },
-
-    // タイマー開始ボタン
     startTodo() {
+      // TODO: emitで実装し直す
       if (this.todo.timer > 0) {
         intervalTimer = setInterval(() => {
+          // TODO: emitで実装し直す
           this.todo.timer -= 1
         },1000)
       } else {
         confirm("test")
       }
+        // TODO: emitで実装し直す
       this.todo.startOpen  = false
+        // TODO: emitで実装し直す
       this.todo.timerOpen = true
     }
   }

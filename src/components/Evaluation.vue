@@ -9,18 +9,7 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-
-    }
-  },
-  methods: {
-    
-  }
-}
 </script>
-
 
 <style lang="scss" scoped>
 .evaluation {
@@ -30,10 +19,12 @@ export default {
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: -6vw;
-    bottom: -6vw;
-    width: 30vw;
-    height: 30vw;
+    right: -4vw;
+    bottom: -4vw;
+    width: 25vw;
+    height: 25vw;
+    min-width: 120px;
+    min-height: 120px;
   }
 
   &__button {
@@ -43,7 +34,6 @@ export default {
     font-size: 4vw;
     border: 2px solid;
     background-color: #fff;
-    font-family: 'HG正楷書体-PRO';
 
     &:hover {
       background: #eee;

@@ -2,7 +2,7 @@
   <div class="todos">
     <ul class="todos__container">
       <li class="todos__list" v-for="(todo,i) in todos" :key="i">
-        <span class="todos__span" v-show="todo.done">完了</span>
+        <span class="todos__span" v-if="todo.done">完了</span>
         <input
           class="todos__name"
           :value="todo.todoName"
@@ -10,7 +10,8 @@
         />
         <button class="todos__done" @click="doneTodo(i,todo.done)">完了</button>
         <button class="todos__delete" @click="deleteTodo(i)">削除</button>
-        <button class="todos__start" @click="startTodo(i)">開始</button>{{ todo.time }}
+        <button class="todos__start" v-if="todo.startOpen" @click="startTodo(i)">開始</button>
+        <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
       </li>
     </ul>
   </div>
@@ -19,30 +20,35 @@
 <script lang="ts">
 import Vue from 'vue'
 
+let intervalTimer
+
 export default Vue.extend({
   props: {
     todos: Array,
   },
   methods: {
-    // 完了を表示させるメソッド
+    // 完了させるメソッド
     doneTodo(i) {
       this.todos[i].done = true
     },
 
     // todosを削除するメソッド
     deleteTodo(i) {
+      clearInterval(intervalTimer)
       this.todos.splice(i,1)
-      console.log(i)
     },
 
-    // タスク開始ボタン
+    // タイマー開始ボタン
     startTodo(i) {
-      if (this.todos[i].time > 0) {
-        setTimeout(() => {
-          this.todos[i].time -= 1
-          this.startTodo(i)
+      if (this.todos[i].timer > 0) {
+        intervalTimer = setInterval(() => {
+          this.todos[i].timer -= 1
         },1000)
+      } else {
+        confirm("test")
       }
+      this.todos[i].startOpen  = false
+      this.todos[i].timerOpen = true
     }
   }
 })
@@ -83,6 +89,18 @@ export default Vue.extend({
 
     &:hover {
       background: $button-hover;
+    }
+  }
+
+  &__start {
+    width: 48px;
+    border: $button-border;
+    border-radius: $button-radius;
+    margin: $mg-2;
+    background: #fff;
+
+    &:hover {
+      background: #fff;
     }
   }
 }

@@ -39,7 +39,10 @@ export default {
         this.todos.push({
           todoName: this.todoName,
           done: false,
-          time: 10
+          timer: 10,
+          timerOpen: false,
+          startOpen: true
+
         })
         this.todoName = ""
       }
@@ -60,7 +63,6 @@ export default {
     &__title {
       margin: 5vw auto;
       font-size: 5vw;
-      font-family: 'HG正楷書体-PRO';
 
       @media screen and (max-width: 720px) {
         margin: 24px auto 10vw auto;

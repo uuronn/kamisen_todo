@@ -6,47 +6,19 @@
       :value="todo.todoName"
       type="text"
     />
-    <button class="todos__done" @click="doneTodo">完了</button>
-    <button class="todos__delete" @click="deleteTodo">削除</button>
-    <button class="todos__start" v-if="todo.startOpen" @click="startTodo">開始</button>
+    <button class="todos__done" @click="$emit('doneTodo', index)">完了</button>
+    <button class="todos__delete" @click="$emit('deleteTodo', index)">削除</button>
+    <button class="todos__start" v-if="todo.startOpen" @click="$emit('startTodo', index)">開始</button>
     <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
   </li>
 </template>
 
 <script>
-let intervalTimer
-
 export default {
-  props: {
-    todo: {}
-  },
-  methods: {
-    doneTodo() {
-      // TODO: emitで実装し直す
-      this.todo.done = true
-    },
-    deleteTodo() {
-      clearInterval(intervalTimer)
-      // TODO: emitで実装し直す
-      this.$destroy()
-      this.$el.parentNode.removeChild(this.$el)
-    },
-    startTodo() {
-      // TODO: emitで実装し直す
-      if (this.todo.timer > 0) {
-        intervalTimer = setInterval(() => {
-          // TODO: emitで実装し直す
-          this.todo.timer -= 1
-        },1000)
-      } else {
-        confirm("test")
-      }
-        // TODO: emitで実装し直す
-      this.todo.startOpen  = false
-        // TODO: emitで実装し直す
-      this.todo.timerOpen = true
-    }
-  }
+  props: [
+    'todo',
+    'index'
+  ]
 }
 </script>
 

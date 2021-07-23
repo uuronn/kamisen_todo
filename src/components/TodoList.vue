@@ -3,10 +3,10 @@
     <ul class="todos__container">
       <Todo
         class="todos__list"
-        v-for="(todo, i) in todos"
-        :key="i"
+        v-for="(todo, index) in todos"
+        :key="index"
         :todo="todo"
-        :index='i'
+        :index='index'
         @doneTodo='doneTodo'
         @deleteTodo='deleteTodo'
         @startTodo='startTodo'

@@ -63,13 +63,9 @@ export default {
       this.todos.splice(index, 1)
     },
     startTodo(index) {
-      if (this.todos[index].timer > 0) {
-        intervalTimer = setInterval(() => {
-          this.todos[index].timer -= 1
-        }, 1000)
-      } else {
-        confirm("test")
-      }
+      intervalTimer = setInterval(() => {
+        this.todos[index].timer -= 1
+      }, 1000)
       this.todos[index].startOpen = false
       this.todos[index].timerOpen = true
     }

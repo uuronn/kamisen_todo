@@ -15,10 +15,18 @@
 
 <script>
 export default {
-  props: [
-    'todo',
-    'index'
-  ]
+  props: {
+    todo: {
+      type     : Object,
+      require  : true,
+      'default': {}
+    },
+    index: {
+      type     : Number,
+      require  : true,
+      'default': 0
+    }
+  }
 }
 </script>
 

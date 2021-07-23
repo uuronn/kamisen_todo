@@ -25,6 +25,8 @@ import Option from './components/Option.vue'
 import TodoList from './components/TodoList.vue'
 import Evaluation from './components/Evaluation.vue'
 
+// TODO: [bug]すべてのTodoに同じタイマーを共有して使っているのでdeleteTodo時に他のタイマーが止まる問題がある
+// todosにintervalTimerをもたせる方法を考えている
 let intervalTimer
 
 export default {
@@ -64,14 +66,16 @@ export default {
       if (this.todos[index].timer > 0) {
         intervalTimer = setInterval(() => {
           this.todos[index].timer -= 1
-        },1000)
+        }, 1000)
       } else {
         confirm("test")
       }
       this.todos[index].startOpen = false
       this.todos[index].timerOpen = true
     }
-  },
+    // TODO: timerの値が0になった場合の実装をする
+    // おそらくwatchでdataのtodosを監視して変更があったときに何かする
+  }
 }
 </script>
 

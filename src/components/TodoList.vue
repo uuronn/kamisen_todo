@@ -22,9 +22,13 @@ export default {
   components: {
     Todo
   },
-  props: [
-    'todos'
-  ],
+  props: {
+    todos: {
+      type     : Array,
+      require  : false,
+      'default': []
+    }
+  },
   methods: {
     doneTodo(index) {
       this.$emit('doneTodo', index)

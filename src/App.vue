@@ -8,7 +8,12 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <TodoList :todos="todos" />
+      <TodoList
+        :todos="todos"
+        @doneTodo='doneTodo'
+        @deleteTodo='deleteTodo'
+        @startTodo='startTodo'
+      />
     </div>
     <Option @clickModes="placeholder = $event" />
     <Evaluation msg="Evaluation_file"/>
@@ -19,6 +24,8 @@
 import Option from './components/Option.vue'
 import TodoList from './components/TodoList.vue'
 import Evaluation from './components/Evaluation.vue'
+
+let intervalTimer
 
 export default {
   data() {
@@ -42,10 +49,27 @@ export default {
           timer: 10,
           timerOpen: false,
           startOpen: true
-
         })
         this.todoName = ""
       }
+    },
+    doneTodo(index) {
+      this.todos[index].done = true
+    },
+    deleteTodo(index) {
+      clearInterval(intervalTimer)
+      this.todos.splice(index, 1)
+    },
+    startTodo(index) {
+      if (this.todos[index].timer > 0) {
+        intervalTimer = setInterval(() => {
+          this.todos[index].timer -= 1
+        },1000)
+      } else {
+        confirm("test")
+      }
+      this.todos[index].startOpen = false
+      this.todos[index].timerOpen = true
     }
   },
 }

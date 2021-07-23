@@ -18,8 +18,6 @@
 <script>
 import Todo from './TodoItem.vue'
 
-let intervalTimer
-
 export default {
   components: {
     Todo
@@ -28,23 +26,14 @@ export default {
     'todos'
   ],
   methods: {
-    doneTodo(i) {
-      this.todos[i].done = true
+    doneTodo(index) {
+      this.$emit('doneTodo', index)
     },
-    deleteTodo(i) {
-      clearInterval(intervalTimer)
-      this.todos.splice(i, 1)
+    deleteTodo(index) {
+      this.$emit('deleteTodo', index)
     },
-    startTodo(i) {
-      if (this.todos[i].timer > 0) {
-        intervalTimer = setInterval(() => {
-          this.todos[i].timer -= 1
-        },1000)
-      } else {
-        confirm("test")
-      }
-      this.todos[i].startOpen  = false
-      this.todos[i].timerOpen = true
+    startTodo(index) {
+      this.$emit('startTodo', index)
     }
   }
 }

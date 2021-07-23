@@ -1,7 +1,7 @@
 <template>
   <div class="todos">
     <ul class="todos__container">
-      <TodoItem msg="hello" v-for="(todo,i) in todos" :todo="todo" :key="i"/>
+      <TodoItem v-for="(todo,i) in todos" :todo="todo" :key="i" :i="i" @test="doneAction2" />
     </ul>
   </div>
 </template>
@@ -18,6 +18,9 @@ export default Vue.extend({
     TodoItem
   },
   methods: {
+    doneAction2(i) {
+      this.$emit("click",i)
+    }
   }
 })
 </script>

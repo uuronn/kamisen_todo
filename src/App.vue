@@ -8,9 +8,9 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <TodoList :todos="todos" />
+      <TodoList :todos="todos" @click="doneAction"/>
     </div>
-    <Option @clickModes="placeholder = $event" />
+    <Option @clickModes="changeModes"/>
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
@@ -40,11 +40,18 @@ export default {
           todoName: this.todoName,
           done: false,
           timer: 10,
+          intervalTimer: null,
           timerOpen: false,
           startOpen: true
         })
         this.todoName = ""
       }
+    },
+    changeModes(index) {
+      this.placeholder = index
+    },
+    doneAction(i) {
+      this.todos[i].done = true
     }
   },
 }

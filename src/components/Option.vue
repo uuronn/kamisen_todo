@@ -44,21 +44,21 @@ export default {
     defaultMode() {
       this.mode = "デフォルト"
       this.buttonMenu = false
-      this.$emit("clickModes"," taskName")
+      this.$emit("clickdffdffd"," taskName")
     },
 
     // 煽りモードにするメソッド
     dissMode() {
       this.mode = "煽り"
       this.buttonMenu = false
-      this.$emit("clickModes"," はよ仕事しろ")
+      this.$emit("clickfdfdfd"," はよ仕事しろ")
     },
 
     // 筋トレモードにするメソッド
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
-      this.$emit("clickModes"," 終わらせないと筋トレだよ")
+      this.$emit("clickfdfdfdf"," 終わらせないと筋トレだよ")
     },
     
     // ハンバーガーメニューの中身を表示させるメソッド

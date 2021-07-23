@@ -14,33 +14,33 @@
 </template>
 
 <script>
-let intervalTimer
 
 export default {
   props: {
-    todo: {}
+    todo: Object,
+    i: Number
   },
   methods: {
     doneTodo() {
-      this.todo.done = true
+      this.$emit("test",this.i)
     },
 
     // todosを削除するメソッド
     deleteTodo() {
-      clearInterval(intervalTimer)
+      clearInterval(this.todo.intervalTimer)
       this.$destroy();
       this.$el.parentNode.removeChild(this.$el)
     },
 
     // タイマー開始ボタン
     startTodo() {
-      intervalTimer = setInterval(() => {
+      this.todo.intervalTimer = setInterval(() => {
         this.todo.timer -= 1
       },1000)
       this.todo.startOpen  = false
       this.todo.timerOpen = true
     }
-  }
+  },
 }
 </script>
 

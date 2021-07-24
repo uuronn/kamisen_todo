@@ -1,7 +1,14 @@
 <template>
   <div class="todos">
     <ul class="todos__container">
-      <TodoItem v-for="(todo,i) in todos" :todo="todo" :key="i" :i="i" @test="doneAction2" />
+      <TodoItem
+        v-for="(todo,i) in todos"
+        :todo="todo"
+        :key="i"
+        @test="doneTodo(i)"
+        @clickTest="deleteTodo(i)"
+        @clickTodo="startTodo(i)"
+      />
     </ul>
   </div>
 </template>
@@ -18,8 +25,14 @@ export default Vue.extend({
     TodoItem
   },
   methods: {
-    doneAction2(i) {
-      this.$emit("click",i)
+    doneTodo(i) {
+      this.$emit("clickDone",i)
+    },
+    deleteTodo(i) {
+      this.$emit("clickDelete",i)
+    },
+    startTodo(i) {
+      this.$emit("clickStart",i)
     }
   }
 })

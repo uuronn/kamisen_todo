@@ -8,7 +8,12 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <TodoList :todos="todos" @click="doneAction"/>
+      <TodoList
+        :todos="todos"
+        @clickDone="doneTodo"
+        @clickDelete="deleteTodo"
+        @clickStart="startTodo"
+      />
     </div>
     <Option @clickModes="changeModes"/>
     <Evaluation msg="Evaluation_file"/>
@@ -51,9 +56,20 @@ export default {
     changeModes(index) {
       this.placeholder = index
     },
-    doneAction(i) {
+    doneTodo(i) {
       this.todos[i].done = true
       this.todos[i].doneBtnShow = false
+    },
+    deleteTodo(i) {
+      this.todos.splice(i,1)
+      // clearInterval(this.todos[i].intervalTimer)
+    },
+    startTodo(i) {
+      this.todos[i].intervalTimer = setInterval(() => {
+        this.todos[i].timer -= 1
+      },1000)
+      this.todos[i].startOpen  = false
+      this.todos[i].timerOpen = true
     }
   },
 }

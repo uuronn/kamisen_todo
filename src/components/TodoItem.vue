@@ -17,27 +17,20 @@
 export default {
   props: {
     todo: Object,
-    i: Number
   },
   methods: {
     doneTodo() {
-      this.$emit("test",this.i)
+      this.$emit("test")
     },
 
     // todosを削除するメソッド
     deleteTodo() {
-      clearInterval(this.todo.intervalTimer)
-      this.$destroy();
-      this.$el.parentNode.removeChild(this.$el)
+      this.$emit("clickTest")
     },
 
     // タイマー開始ボタン
     startTodo() {
-      this.todo.intervalTimer = setInterval(() => {
-        this.todo.timer -= 1
-      },1000)
-      this.todo.startOpen  = false
-      this.todo.timerOpen = true
+      this.$emit("clickTodo")
     }
   },
 }

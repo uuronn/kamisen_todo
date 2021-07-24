@@ -42,7 +42,8 @@ export default {
           timer: 10,
           intervalTimer: null,
           timerOpen: false,
-          startOpen: true
+          startOpen: true,
+          doneBtnShow: true
         })
         this.todoName = ""
       }
@@ -52,6 +53,7 @@ export default {
     },
     doneAction(i) {
       this.todos[i].done = true
+      this.todos[i].doneBtnShow = false
     }
   },
 }

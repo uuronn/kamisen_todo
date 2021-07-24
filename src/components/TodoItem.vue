@@ -6,7 +6,7 @@
       :value="todo.todoName"
       type="text"
     />
-    <button class="todos__done" @click="doneTodo">完了</button>
+    <button class="todos__done" v-if="todo.doneBtnShow" @click="doneTodo">完了</button>
     <button class="todos__delete" @click="deleteTodo">削除</button>
     <button class="todos__start" v-if="todo.startOpen" @click="startTodo">開始</button>
     <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     todo: Object,

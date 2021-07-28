@@ -30,7 +30,7 @@ export default {
     return {
       todos: [],
       todoName: "",
-      placeholder: " taskName",
+      placeholder: "taskName",
     }
   },
   components: {
@@ -48,7 +48,7 @@ export default {
           intervalTimer: null,
           timerOpen: false,
           startOpen: true,
-          doneBtnShow: true
+          timerFinished: false
         })
         this.todoName = ""
       }
@@ -58,11 +58,10 @@ export default {
     },
     doneTodo(i) {
       this.todos[i].done = true
-      this.todos[i].doneBtnShow = false
     },
     deleteTodo(i) {
+      clearInterval(this.todos[i].intervalTimer)
       this.todos.splice(i,1)
-      // clearInterval(this.todos[i].intervalTimer)
     },
     startTodo(i) {
       this.todos[i].intervalTimer = setInterval(() => {
@@ -98,6 +97,7 @@ export default {
     &__input {
       width: 15vw;
       min-width: 196px;
+      padding-left: 4px;
       border-radius: 4px;
       border: 2px solid;
       margin: 2px;

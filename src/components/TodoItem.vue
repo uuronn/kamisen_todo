@@ -6,7 +6,7 @@
       :value="todo.todoName"
       type="text"
     />
-    <button class="todos__done" v-if="todo.doneBtnShow" @click="doneTodo">完了</button>
+    <button class="todos__done" v-if="!todo.done" @click="doneTodo">完了</button>
     <button class="todos__delete" @click="deleteTodo">削除</button>
     <button class="todos__start" v-if="todo.startOpen" @click="startTodo">開始</button>
     <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
@@ -33,6 +33,18 @@ export default {
       this.$emit("clickTodo")
     }
   },
+  watch: {
+    todo: {
+      handler: function(newTodo) {
+        if(newTodo.timer === 0 && !newTodo.timerFinished) {
+          clearInterval(newTodo.intervalTimer)
+          newTodo.timerFinished = true
+          alert("時間です！！！")
+        }
+      },
+      deep: true
+    }
+  }
 }
 </script>
 

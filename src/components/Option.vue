@@ -37,28 +37,28 @@ export default {
   methods: {
     // モードを切り替えるボタンを表示させるメソッド
     switchButton() {
-        this.buttonMenu = !this.buttonMenu
+      this.buttonMenu = !this.buttonMenu
     },
 
     // デフォルトモードにするメソッド
     defaultMode() {
       this.mode = "デフォルト"
       this.buttonMenu = false
-      this.$emit("clickdffdffd"," taskName")
+      this.$emit("clickModes"," taskName")
     },
 
     // 煽りモードにするメソッド
     dissMode() {
       this.mode = "煽り"
       this.buttonMenu = false
-      this.$emit("clickfdfdfd"," はよ仕事しろ")
+      this.$emit("clickModes"," はよ仕事しろ")
     },
 
     // 筋トレモードにするメソッド
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
-      this.$emit("clickfdfdfdf"," 終わらせないと筋トレだよ")
+      this.$emit("clickModes"," 腹筋6LDK目指しましょう")
     },
     
     // ハンバーガーメニューの中身を表示させるメソッド
@@ -69,8 +69,8 @@ export default {
     // sample
     sampleAction() {
       this.sampleShow = !this.sampleShow
-      }
     }
+  }
 }
 </script>
 
@@ -89,14 +89,14 @@ export default {
 
   &__image {
     width: 100%;
-      border-radius: 8px;
-      vertical-align:top;
-      transition: 0.5s;
+    border-radius: 8px;
+    vertical-align:top;
+    transition: 0.5s;
 
-      &:hover {
-        border-radius: 32px;
-        transform:rotate(180deg);
-      }
+    &:hover {
+      border-radius: 32px;
+      transform:rotate(180deg);
+    }
   }
   
   &__content {

@@ -19,18 +19,19 @@ export default {
     todo: Object,
   },
   methods: {
+    // 完了ボタンを表示させるメソッド
     doneTodo() {
-      this.$emit("test")
+      this.$emit("clickDone")
     },
 
     // todosを削除するメソッド
     deleteTodo() {
-      this.$emit("clickTest")
+      this.$emit("clickDelete")
     },
 
     // タイマー開始ボタン
     startTodo() {
-      this.$emit("clickTodo")
+      this.$emit("clickStart")
     }
   },
   watch: {
@@ -95,7 +96,7 @@ export default {
 
     &:hover {
       background: $button-hover;
-      }
+    }
   }
 }
 </style>

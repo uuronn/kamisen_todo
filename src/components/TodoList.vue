@@ -5,9 +5,9 @@
         v-for="(todo,i) in todos"
         :todo="todo"
         :key="i"
-        @test="doneTodo(i)"
-        @clickTest="deleteTodo(i)"
-        @clickTodo="startTodo(i)"
+        @clickDone="doneTodo(i)"
+        @clickDelete="deleteTodo(i)"
+        @clickStart="startTodo(i)"
       />
     </ul>
   </div>
@@ -37,7 +37,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-
-</style>

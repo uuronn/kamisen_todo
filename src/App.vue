@@ -39,6 +39,7 @@ export default {
     Evaluation
   },
   methods: {
+    // todosにタスクを追加するメソッド
     addTodo() {
       if (this.todoName) {
         this.todos.push({
@@ -53,16 +54,24 @@ export default {
         this.todoName = ""
       }
     },
+
+    // メード切り替えメソッド
     changeModes(index) {
       this.placeholder = index
     },
+
+    // 完了表示メソッド
     doneTodo(i) {
       this.todos[i].done = true
     },
+
+    // タスク削除するメソッド
     deleteTodo(i) {
       clearInterval(this.todos[i].intervalTimer)
       this.todos.splice(i,1)
     },
+
+    // タイマーを開始するメソッド
     startTodo(i) {
       this.todos[i].intervalTimer = setInterval(() => {
         this.todos[i].timer -= 1

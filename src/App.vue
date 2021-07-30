@@ -13,6 +13,7 @@
         @clickDone="doneTodo"
         @clickDelete="deleteTodo"
         @clickStart="startTodo"
+        @stopTimer="stopTimer"
       />
     </div>
     <Option @clickModes="changeModes"/>
@@ -67,17 +68,42 @@ export default {
 
     // タスク削除するメソッド
     deleteTodo(i) {
+      // 押されたi番目のインターバルタイマーを削除する
       clearInterval(this.todos[i].intervalTimer)
+      // Todoオブジェクトを論理削除
       this.todos.splice(i,1)
+      // ０になってない実行中の他のタイマーを全て初期化
+      this.resetActiveTimer()
+    },
+
+    // タイマーの初期化
+    initTimer(i) {
+      let decrementTimer = () => --this.todos[i].timer
+      this.todos[i].intervalTimer = setInterval(decrementTimer, 1000)
     },
 
     // タイマーを開始するメソッド
     startTodo(i) {
-      this.todos[i].intervalTimer = setInterval(() => {
-        this.todos[i].timer -= 1
-      },1000)
+      this.initTimer(i)
       this.todos[i].startOpen  = false
       this.todos[i].timerOpen = true
+    },
+
+    // タイマーが０になった時の処理
+    stopTimer(i) {
+      clearInterval(this.todos[i].intervalTimer)
+      this.todos[i].timerFinished = true
+      alert("時間です！！！")
+    },
+
+    // ０になってない実行中のタイマーを全て初期化
+    resetActiveTimer() {
+      for(let i = 0; i < this.todos.length; i++) {
+        if(this.todos[i].intervalTimer != null && !this.todos[i].timerFinished) {
+          clearInterval(this.todos[i].intervalTimer)
+          this.initTimer(i)
+        }
+      }
     }
   },
 }

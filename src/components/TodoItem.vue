@@ -36,11 +36,9 @@ export default {
   },
   watch: {
     todo: {
-      handler: function(newTodo) {
-        if(newTodo.timer === 0 && !newTodo.timerFinished) {
-          clearInterval(newTodo.intervalTimer)
-          newTodo.timerFinished = true
-          alert("時間です！！！")
+      handler: function() {
+        if(this.todo.timer === 0 && !this.todo.timerFinished) {
+          this.$emit("stopTimer")
         }
       },
       deep: true

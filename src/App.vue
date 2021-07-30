@@ -68,11 +68,8 @@ export default {
 
     // タスク削除するメソッド
     deleteTodo(index) {
-      // 押されたi番目のインターバルタイマーを削除する
       clearInterval(this.todos[index].intervalTimer)
-      // Todoオブジェクトを論理削除
       this.todos.splice(index, 1)
-      // ０になってない実行中の他のタイマーを全て初期化
       this.resetActiveTimer()
     },
 

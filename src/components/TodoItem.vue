@@ -3,7 +3,7 @@
     <span class="todos__span" v-if="todo.done">完了</span>
     <input
       class="todos__name"
-      :value="todo.todoName"
+      v-model="todo.todoName"
       type="text"
     />
     <button class="todos__done" v-if="!todo.done" @click="doneTodo">完了</button>

@@ -3,7 +3,7 @@
     <span class="todos__span" v-if="todo.done">完了</span>
     <input
       class="todos__name"
-      :value="todo.todoName"
+      v-model="todo.todoName"
       type="text"
     />
     <button class="todos__done" v-if="!todo.done" @click="doneTodo">完了</button>
@@ -36,11 +36,9 @@ export default {
   },
   watch: {
     todo: {
-      handler: function(newTodo) {
-        if(newTodo.timer === 0 && !newTodo.timerFinished) {
-          clearInterval(newTodo.intervalTimer)
-          newTodo.timerFinished = true
-          alert("時間です！！！")
+      handler: function() {
+        if(this.todo.timer === 0 && !this.todo.timerFinished) {
+          this.$emit("stopTimer")
         }
       },
       deep: true

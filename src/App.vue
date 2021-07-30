@@ -13,6 +13,7 @@
         @clickDone="doneTodo"
         @clickDelete="deleteTodo"
         @clickStart="startTodo"
+        @stopTimer="stopTimer"
       />
     </div>
     <Option @clickModes="changeModes"/>
@@ -56,28 +57,50 @@ export default {
     },
 
     // メード切り替えメソッド
-    changeModes(index) {
-      this.placeholder = index
+    changeModes(value) {
+      this.placeholder = value
     },
 
     // 完了表示メソッド
-    doneTodo(i) {
-      this.todos[i].done = true
+    doneTodo(index) {
+      this.todos[index].done = true
     },
 
     // タスク削除するメソッド
-    deleteTodo(i) {
-      clearInterval(this.todos[i].intervalTimer)
-      this.todos.splice(i,1)
+    deleteTodo(index) {
+      clearInterval(this.todos[index].intervalTimer)
+      this.todos.splice(index, 1)
+      this.resetActiveTimer()
+    },
+
+    // タイマーの初期化
+    initTimer(index) {
+      let decrementTimer = () => --this.todos[index].timer
+      this.todos[index].intervalTimer = setInterval(decrementTimer, 1000)
     },
 
     // タイマーを開始するメソッド
-    startTodo(i) {
-      this.todos[i].intervalTimer = setInterval(() => {
-        this.todos[i].timer -= 1
-      },1000)
-      this.todos[i].startOpen  = false
-      this.todos[i].timerOpen = true
+    startTodo(index) {
+      this.initTimer(index)
+      this.todos[index].startOpen = false
+      this.todos[index].timerOpen = true
+    },
+
+    // タイマーが０になった時の処理
+    stopTimer(index) {
+      clearInterval(this.todos[index].intervalTimer)
+      this.todos[index].timerFinished = true
+      alert("時間です！！！")
+    },
+
+    // ０になってない実行中のタイマーを全て初期化
+    resetActiveTimer() {
+      for(let i = 0; i < this.todos.length; i++) {
+        if(this.todos[i].intervalTimer != null && !this.todos[i].timerFinished) {
+          clearInterval(this.todos[i].intervalTimer)
+          this.initTimer(i)
+        }
+      }
     }
   },
 }

@@ -82,7 +82,7 @@ export default {
     // タイマーを開始するメソッド
     startTodo(index) {
       this.initTimer(index)
-      this.todos[index].startOpen  = false
+      this.todos[index].startOpen = false
       this.todos[index].timerOpen = true
     },
 

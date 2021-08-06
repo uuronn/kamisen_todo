@@ -34,21 +34,6 @@
 
     &:hover {
       background: $button-hover;
-      animation-name: evaluation;
-      animation-duration: 1s;
-
-      @keyframes evaluation {
-        0% {
-          width: 50%;
-          height: 50%;
-        }
-
-        50% {
-          width: 100%;
-          height: 100%;
-          font-size: 8vw;
-        }
-      }
     }
   }
 }

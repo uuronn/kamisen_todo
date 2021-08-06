@@ -8,6 +8,7 @@
         @clickDone="doneTodo(i)"
         @clickDelete="deleteTodo(i)"
         @clickStart="startTodo(i)"
+        @stopTodo="stopTodo(i)"
       />
     </ul>
   </div>
@@ -33,6 +34,10 @@ export default Vue.extend({
     },
     startTodo(i) {
       this.$emit("clickStart",i)
+    },
+    stopTodo(i) {
+      this.$emit("stopTodo",i)
+      alert("test")
     }
   }
 })

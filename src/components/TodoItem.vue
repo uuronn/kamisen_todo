@@ -1,5 +1,5 @@
 <template>
-  <li class="todos__list">
+  <div class="todos__list">
     <span class="todos__span" v-if="todo.done">完了</span>
     <input
       class="todos__name"
@@ -10,7 +10,7 @@
     <button class="todos__delete" @click="deleteTodo">削除</button>
     <button class="todos__start" v-if="todo.startOpen" @click="startTodo">開始</button>
     <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -36,11 +36,11 @@ export default {
   },
   watch: {
     todo: {
-      handler: function(newTodo) {
-        if(newTodo.timer === 0 && !newTodo.timerFinished) {
-          clearInterval(newTodo.intervalTimer)
-          newTodo.timerFinished = true
-          alert("時間です！！！")
+      handler: function() {
+        if(this.todo.timer === 0) {
+          this.$emit("stopTodo");
+
+          
         }
       },
       deep: true

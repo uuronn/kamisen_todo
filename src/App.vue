@@ -13,6 +13,7 @@
         @clickDone="doneTodo"
         @clickDelete="deleteTodo"
         @clickStart="startTodo"
+        @stopTodo="stopTodo"
       />
     </div>
     <Option @clickModes="changeModes"/>
@@ -78,6 +79,10 @@ export default {
       },1000)
       this.todos[i].startOpen  = false
       this.todos[i].timerOpen = true
+    },
+
+    stopTodo(i) {
+      clearInterval(this.todos[i].intervalTimer);
     }
   },
 }

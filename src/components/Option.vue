@@ -16,7 +16,7 @@
           <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
         </div>
         <div class="option__sample">
-          <button class="option__btn" @click="sampleAction">ボタン</button>
+          <button class="option__btn" @click="sampleAction">テストボタン</button>
           <button class="option__show" v-if="sampleShow">中身</button>
           <button class="option__show" v-if="sampleShow">中身</button>
         </div>
@@ -37,7 +37,7 @@ export default {
   methods: {
     // モードを切り替えるボタンを表示させるメソッド
     switchButton() {
-        this.buttonMenu = !this.buttonMenu
+      this.buttonMenu = !this.buttonMenu
     },
 
     // デフォルトモードにするメソッド
@@ -58,7 +58,7 @@ export default {
     muscleMode() {
       this.mode = "筋トレ"
       this.buttonMenu = false
-      this.$emit("clickModes"," 終わらせないと筋トレだよ")
+      this.$emit("clickModes"," 腹筋6LDK目指しましょう")
     },
     
     // ハンバーガーメニューの中身を表示させるメソッド
@@ -69,8 +69,8 @@ export default {
     // sample
     sampleAction() {
       this.sampleShow = !this.sampleShow
-      }
     }
+  }
 }
 </script>
 
@@ -89,14 +89,14 @@ export default {
 
   &__image {
     width: 100%;
-      border-radius: 8px;
-      vertical-align:top;
-      transition: 0.5s;
+    border-radius: 8px;
+    vertical-align:top;
+    transition: 0.5s;
 
-      &:hover {
-        border-radius: 32px;
-        transform:rotate(900deg);
-      }
+    &:hover {
+      border-radius: 32px;
+      transform:rotate(180deg);
+    }
   }
   
   &__content {
@@ -113,10 +113,10 @@ export default {
     transition: 1s;
 
     & button {
-      border-radius: $button-radius;
-      border: $button-border;
-      margin: $mg-2;
-      background: #fff;
+      border-radius: 4px;
+      border: 2px solid;
+      margin: 2px;
+      background: $button-back;
 
       &:hover {
         background: $button-hover;
@@ -126,16 +126,16 @@ export default {
   
   &__sample {
     // widthは確定ではない
-    width: 80px;
+    width: 120px;
     display: flex;
     flex-flow: column;
   }
 
   & button {
-    background: #fff;
-    border-radius: $button-radius;
-    border: $button-border;
-    margin: $mg-2;
+    background: $button-back;
+    border-radius: 4px;
+    border: 2px solid;
+    margin: 2px;
 
     &:hover {
       background: $button-hover;

@@ -8,16 +8,22 @@
         :placeholder="placeholder"
       />
       <button class="main__add" @click="addTodo">追加</button>
-      <Todos :todos="todos" />
+      <TodoList
+        :todos="todos"
+        @clickDone="doneTodo"
+        @clickDelete="deleteTodo"
+        @clickStart="startTodo"
+        @stopTodo="stopTodo"
+      />
     </div>
-    <Option @clickModes="placeholder = $event" />
+    <Option @clickModes="changeModes"/>
     <Evaluation msg="Evaluation_file"/>
   </div>
 </template>
 
 <script>
 import Option from './components/Option.vue'
-import Todos from './components/Todos.vue'
+import TodoList from './components/TodoList.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
@@ -25,23 +31,58 @@ export default {
     return {
       todos: [],
       todoName: "",
-      placeholder: " taskName",
+      placeholder: "taskName",
     }
   },
   components: {
     Option,
-    Todos,
+    TodoList,
     Evaluation
   },
   methods: {
+    // todosにタスクを追加するメソッド
     addTodo() {
       if (this.todoName) {
         this.todos.push({
           todoName: this.todoName,
-          test: false
+          done: false,
+          timer: 10,
+          intervalTimer: null,
+          timerOpen: false,
+          startOpen: true,
+          timerFinished: false
         })
         this.todoName = ""
       }
+    },
+
+    // メード切り替えメソッド
+    changeModes(index) {
+      this.placeholder = index
+    },
+
+    // 完了表示メソッド
+    doneTodo(i) {
+      this.todos[i].done = true
+    },
+
+    // タスク削除するメソッド
+    deleteTodo(i) {
+      clearInterval(this.todos[i].intervalTimer)
+      this.todos.splice(i,1)
+    },
+
+    // タイマーを開始するメソッド
+    startTodo(i) {
+      this.todos[i].intervalTimer = setInterval(() => {
+        this.todos[i].timer -= 1
+      },1000)
+      this.todos[i].startOpen  = false
+      this.todos[i].timerOpen = true
+    },
+
+    stopTodo(i) {
+      clearInterval(this.todos[i].intervalTimer);
     }
   },
 }
@@ -59,7 +100,6 @@ export default {
     &__title {
       margin: 5vw auto;
       font-size: 5vw;
-      font-family: 'HG正楷書体-PRO';
 
       @media screen and (max-width: 720px) {
         margin: 24px auto 10vw auto;
@@ -71,10 +111,11 @@ export default {
     &__input {
       width: 15vw;
       min-width: 196px;
-      border-radius: $button-radius;
-      border: $button-border;
-      margin: $mg-2;
-      background: #fff;
+      padding-left: 4px;
+      border-radius: 4px;
+      border: 2px solid;
+      margin: 2px;
+      background: $button-back;
 
       &:hover {
         background: $button-hover;
@@ -83,14 +124,15 @@ export default {
 
     &__add {
       width: 48px;
-      border-radius: $button-radius;
-      border: $button-border;
-      margin: $mg-2;
-      background: #fff;
-      
+      border-radius: 4px;
+      border: 2px solid;
+      margin: 2px;
+      background: $button-back;
+
       &:hover {
         background: $button-hover;
       }
+
     }
   }
 }

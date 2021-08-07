@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+    <Title/>
     <div class="main">
-      <h1 class="main__title">神の宣告</h1>
       <input
         class="main__input"
         v-model="todoName"
@@ -22,8 +22,9 @@
 </template>
 
 <script>
-import Option from './components/Option.vue'
+import Title from './components/Title.vue'
 import TodoList from './components/TodoList.vue'
+import Option from './components/Option.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
@@ -35,8 +36,9 @@ export default {
     }
   },
   components: {
-    Option,
+    Title,
     TodoList,
+    Option,
     Evaluation
   },
   methods: {
@@ -88,7 +90,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   height: 100vh;
   position: relative;
@@ -96,17 +98,6 @@ export default {
 
   .main {
     text-align: center;
-
-    &__title {
-      margin: 5vw auto;
-      font-size: 5vw;
-
-      @media screen and (max-width: 720px) {
-        margin: 24px auto 10vw auto;
-        width: 10vw;
-        font-size: 40px;
-      }
-    }
 
     &__input {
       width: 15vw;

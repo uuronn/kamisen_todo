@@ -1,15 +1,15 @@
 <template>
-  <div class="todos__list">
-    <span class="todos__span" v-if="todo.done">完了</span>
+  <div class="todoItem">
+    <span class="todoItem__finish" v-if="todo.done">完了</span>
     <input
-      class="todos__name"
+      class="todoItem__name"
       :value="todo.todoName"
       type="text"
     />
-    <button class="todos__done" v-if="!todo.done" @click="doneTodo">完了</button>
-    <button class="todos__delete" @click="deleteTodo">削除</button>
-    <button class="todos__start" v-if="todo.startOpen" @click="startTodo">開始</button>
-    <span class="todos__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
+    <button class="todoItem__button" v-if="!todo.done" @click="doneTodo">完了</button>
+    <button class="todoItem__button" @click="deleteTodo">削除</button>
+    <button class="todoItem__button" v-if="todo.startOpen" @click="startTodo">開始</button>
+    <span class="todoItem__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
   </div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.todos {
+.todoItem {
   &__name {
     border-radius: 4px;
     border: 2px solid;
@@ -63,31 +63,7 @@ export default {
     }
   }
 
-  &__done {
-    width: 48px;
-    border: 2px solid;
-    border-radius: 4px;
-    margin: 2px;
-    background: $button-back;
-
-    &:hover {
-      background: $button-hover;
-    }
-  }
-
-  &__delete {
-    width: 48px;
-    border: 2px solid;
-    border-radius: 4px;
-    margin: 2px;
-    background: $button-back;
-
-    &:hover {
-      background: $button-hover;
-    }
-  }
-
-  &__start {
+  &__button {
     width: 48px;
     border: 2px solid;
     border-radius: 4px;

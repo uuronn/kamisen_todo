@@ -1,14 +1,14 @@
 <template>
-  <div class="todo">
+  <div class="todoInput">
     <input
-      class="todo__input"
+      class="todoInput__form"
       v-model="todoName"
       :placeholder="placeholder"
     />
-    <button class="todo__button" @click="addTodo">追加</button>
+    <button class="todoInput__button" @click="addTodo">追加</button>
     <TodoList
       :todos="todos"
-      @donteTodo="doneTodo"
+      @doneTodo="doneTodo"
       @deleteTodo="deleteTodo"
       @startTodo="startTodo"
       @stopTodo="stopTodo"
@@ -31,7 +31,7 @@ export default {
     TodoList
   },
   methods: {
-    // todosにタスクを追加するメソッド
+    // タスクを追加するメソッド
     addTodo() {
       if (this.todoName) {
         this.todos.push({
@@ -76,11 +76,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.todo {
+.todoInput {
   text-align: center;
 
   // タスク名入れるinput
-  &__input {
+  &__form {
     width: 15vw;
     min-width: 196px;
     border-radius: 4px;
@@ -88,6 +88,18 @@ export default {
     margin: 2px;
     background: #fff;
 
+    &:hover {
+      background: $button-hover;
+    }
+  }
+
+  &__button {
+    width: 48px;
+    border: 2px solid;
+    border-radius: 4px;
+    margin: 2px;
+    background: $button-back;
+    
     &:hover {
       background: $button-hover;
     }

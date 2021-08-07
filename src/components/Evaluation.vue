@@ -1,6 +1,6 @@
 <template>
   <div class="evaluation">
-    <div class="evaluation__container">
+    <div class="evaluation__warpper">
       <button class="evaluation__button">
         評価
       </button>
@@ -10,31 +10,5 @@
 
 <style lang="scss" scoped>
 .evaluation {
-  
-  &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: -4vw;
-    bottom: -4vw;
-    width: 25vw;
-    height: 25vw;
-    min-width: 120px;
-    min-height: 120px;
-  }
-
-  &__button {
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    font-size: 4vw;
-    border: 2px solid;
-    background-color: $button-back;
-
-    &:hover {
-      background: $button-hover;
-    }
-  }
 }
 </style>

@@ -1,26 +1,26 @@
 <template>
   <div class="option">
     <h3 class="option__announce">{{ mode }}モード</h3>
-      <div class="option__button" @click="openOption">
-        <img
-          class="option__image"
-          src="../assets/option_button-img.png"
-          alt="ハンバーガーメニュー画像"
-        />
+    <div class="option__button" @click="openOption">
+      <img
+        class="option__image"
+        src="../assets/option_button-img.png"
+        alt="ハンバーガーメニュー画像"
+      />
+    </div>
+    <div class="option__content" v-if="optionIsShow">
+      <div class="option__mode">
+        <button class="option__switch" @click="switchButton">切り替え</button>
+        <button class="option__default" v-if="buttonMenu" @click="defaultMode">デフォルトモード</button>
+        <button class="option__diss" v-if="buttonMenu" @click="dissMode">煽りモード</button>
+        <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
       </div>
-      <div class="option__content" v-if="optionIsShow">
-        <div class="option__mode">
-          <button class="option__switch" @click="switchButton">切り替え</button>
-          <button class="option__default" v-if="buttonMenu" @click="defaultMode">デフォルトモード</button>
-          <button class="option__diss" v-if="buttonMenu" @click="dissMode">煽りモード</button>
-          <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
-        </div>
-        <div class="option__sample">
-          <button class="option__btn" @click="sampleAction">テストボタン</button>
-          <button class="option__show" v-if="sampleShow">中身</button>
-          <button class="option__show" v-if="sampleShow">中身</button>
-        </div>
+      <div class="option__sample">
+        <button class="option__btn" @click="sampleAction">テストボタン</button>
+        <button class="option__show" v-if="sampleShow">中身</button>
+        <button class="option__show" v-if="sampleShow">中身</button>
       </div>
+    </div>
   </div>
 </template>
 

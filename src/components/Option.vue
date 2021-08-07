@@ -1,6 +1,6 @@
 <template>
   <div class="option">
-    <h3 class="option__announce">{{ mode }}モード</h3>
+    <span class="option__announce">{{ mode }}モード</span>
     <div class="option__button" @click="openOption">
       <img
         class="option__image"
@@ -8,67 +8,28 @@
         alt="ハンバーガーメニュー画像"
       />
     </div>
-    <div class="option__content" v-if="optionIsShow">
-      <div class="option__mode">
-        <button class="option__switch" @click="switchButton">切り替え</button>
-        <button class="option__default" v-if="buttonMenu" @click="defaultMode">デフォルトモード</button>
-        <button class="option__diss" v-if="buttonMenu" @click="dissMode">煽りモード</button>
-        <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
-      </div>
-      <div class="option__sample">
-        <button class="option__btn" @click="sampleAction">テストボタン</button>
-        <button class="option__show" v-if="sampleShow">中身</button>
-        <button class="option__show" v-if="sampleShow">中身</button>
-      </div>
-    </div>
+    <OptionList v-if="optionIsShow"/>
   </div>
 </template>
 
 <script>
+import OptionList from './OptionList.vue'
+
 export default {
   data() {
     return {
       mode: 'デフォルト',
       optionIsShow: false,
-      buttonMenu: false,
       sampleShow: false,
     }
   },
+  components: {
+    OptionList
+  },
   methods: {
-    // モードを切り替えるボタンを表示させるメソッド
-    switchButton() {
-      this.buttonMenu = !this.buttonMenu
-    },
-
-    // デフォルトモードにするメソッド
-    defaultMode() {
-      this.mode = "デフォルト"
-      this.buttonMenu = false
-      this.$emit("clickModes"," taskName")
-    },
-
-    // 煽りモードにするメソッド
-    dissMode() {
-      this.mode = "煽り"
-      this.buttonMenu = false
-      this.$emit("clickModes"," はよ仕事しろ")
-    },
-
-    // 筋トレモードにするメソッド
-    muscleMode() {
-      this.mode = "筋トレ"
-      this.buttonMenu = false
-      this.$emit("clickModes"," 腹筋6LDK目指しましょう")
-    },
-    
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
       this.optionIsShow = !this.optionIsShow
-    },
-
-    // sample
-    sampleAction() {
-      this.sampleShow = !this.sampleShow
     }
   }
 }
@@ -104,42 +65,6 @@ export default {
     animation-name: test;
     animation-direction: 1s;
     transition: all 1s;
-  }
-
-  &__mode {
-    width: 144px;
-    display: flex;
-    flex-flow: column;
-    transition: 1s;
-
-    & button {
-      border-radius: 4px;
-      border: 2px solid;
-      margin: 2px;
-      background: $button-back;
-
-      &:hover {
-        background: $button-hover;
-      }
-    }
-  }
-  
-  &__sample {
-    // widthは確定ではない
-    width: 120px;
-    display: flex;
-    flex-flow: column;
-  }
-
-  & button {
-    background: $button-back;
-    border-radius: 4px;
-    border: 2px solid;
-    margin: 2px;
-
-    &:hover {
-      background: $button-hover;
-    }
   }
 }
 </style>

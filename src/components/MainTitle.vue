@@ -1,11 +1,11 @@
 <template>
-  <div class="title">
-    <h1 class="title__font">神の宣告</h1>
+  <div class="MainTitle">
+    <h1 class="MainTitle__font">神の宣告</h1>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.title {
+.MainTitle {
   margin: 5vw auto 3vw auto;
   text-align: center;
   

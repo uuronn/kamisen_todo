@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <MainTitle/>
     <TodoInput/>
     <Option @clickModes="changeModes"/>
@@ -37,39 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#app {
-  height: 100vh;
+div {
   position: relative;
   overflow: hidden;
-
-  .main {
-    text-align: center;
-
-    &__input {
-      width: 15vw;
-      min-width: 196px;
-      padding-left: 4px;
-      border-radius: 4px;
-      border: 2px solid;
-      margin: 2px;
-      background: $button-back;
-
-      &:hover {
-        background: $button-hover;
-      }
-    }
-
-    &__add {
-      width: 48px;
-      border-radius: 4px;
-      border: 2px solid;
-      margin: 2px;
-      background: $button-back;
-
-      &:hover {
-        background: $button-hover;
-      }
-    }
-  }
 }
 </style>

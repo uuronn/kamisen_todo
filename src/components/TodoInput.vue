@@ -8,28 +8,27 @@
     <button class="todo__button" @click="addTodo">追加</button>
     <TodoList
       :todos="todos"
-      @clickDone="doneTodo"
-      @clickDelete="deleteTodo"
-      @clickStart="startTodo"
+      @donteTodo="doneTodo"
+      @deleteTodo="deleteTodo"
+      @startTodo="startTodo"
       @stopTodo="stopTodo"
     />
   </div>
 </template>
 
 <script>
+import TodoList from './TodoList.vue'
+
 export default {
   data() {
     return {
-      todos: [],
       todoName: "",
-      placeholder: "taskName",
+      placeholder: " taskName",
+      todos: [],
     }
   },
   components: {
-    Title,
-    TodoList,
-    Option,
-    Evaluation
+    TodoList
   },
   methods: {
     // todosにタスクを追加するメソッド
@@ -47,7 +46,8 @@ export default {
         this.todoName = ""
       }
     },
-    // 完了表示メソッド
+
+    // タスク完了表示するメソッド
     doneTodo(i) {
       this.todos[i].done = true
     },
@@ -67,9 +67,30 @@ export default {
       this.todos[i].timerOpen = true
     },
 
+    // タイマー停止するメソッド
     stopTodo(i) {
       clearInterval(this.todos[i].intervalTimer);
     }
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.todo {
+  text-align: center;
+
+  // タスク名入れるinput
+  &__input {
+    width: 15vw;
+    min-width: 196px;
+    border-radius: 4px;
+    border: 2px solid;
+    margin: 2px;
+    background: #fff;
+
+    &:hover {
+      background: $button-hover;
+    }
+  }
+}
+</style>

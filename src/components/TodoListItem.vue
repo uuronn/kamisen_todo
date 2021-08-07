@@ -21,17 +21,17 @@ export default {
   methods: {
     // 完了ボタンを表示させるメソッド
     doneTodo() {
-      this.$emit("clickDone")
+      this.$emit("doneTodo")
     },
 
     // todosを削除するメソッド
     deleteTodo() {
-      this.$emit("clickDelete")
+      this.$emit("deleteTodo")
     },
 
     // タイマー開始ボタン
     startTodo() {
-      this.$emit("clickStart")
+      this.$emit("startTodo")
     }
   },
   watch: {

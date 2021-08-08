@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root">
     <MainTitle/>
     <TodoInput/>
     <Option @clickModes="changeModes"/>
@@ -37,7 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
+.root {
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
 }

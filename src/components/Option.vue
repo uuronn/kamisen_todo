@@ -1,13 +1,11 @@
 <template>
   <div class="option">
     <span class="option__announce">{{ mode }}モード</span>
-    <div class="option__button" @click="openOption">
-      <img
-        class="option__image"
-        src="../assets/option_button-img.png"
-        alt="ハンバーガーメニュー画像"
-      />
-    </div>
+    <button class="option__button" @click="openOption">
+      <span class="option__style"></span>
+      <span class="option__style"></span>
+      <span class="option__style"></span>
+    </button>
     <OptionList v-if="optionIsShow"/>
   </div>
 </template>
@@ -38,33 +36,31 @@ export default {
 <style lang="scss" scoped>
 .option {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   right: 0.5vw;
   top: 0.5vw;
   text-align: right;
 
+  // ハンバーガーボタン
   &__button {
-    width: 50px;
-    margin-left: auto;
-  }
-
-  &__image {
-    width: 100%;
-    border-radius: 8px;
-    vertical-align:top;
-    transition: 0.5s;
-
-    &:hover {
-      border-radius: 32px;
-      transform:rotate(180deg);
-    }
-  }
-  
-  &__content {
     display: flex;
-    animation-name: test;
-    animation-direction: 1s;
-    transition: all 1s;
+    justify-content: center;
+    flex-direction: column;
+    background: #fff;
+    width: 56px;
+    height: 56px;
+    margin-left: auto;
+    border: 1px solid #000;
+    border-radius: 8px;
+  }
+
+  // ハンバーガーボタンの三本線
+  &__style {
+    margin: 4px auto;
+    width: 80%;
+    height: 6px;
+    border-radius: 50px;
+    background: #000;
   }
 }
 </style>

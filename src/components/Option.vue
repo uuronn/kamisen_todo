@@ -2,9 +2,9 @@
   <div class="option">
     <span class="option__announce">{{ mode }}モード</span>
     <button class="option__button" @click="openOption">
-      <span class="option__style"></span>
-      <span class="option__style"></span>
-      <span class="option__style"></span>
+      <span class="option__style" :class="topLine"></span>
+      <span class="option__style" :class="centerLine"></span>
+      <span class="option__style" :class="bottomLine"></span>
     </button>
     <OptionList v-if="optionIsShow"/>
   </div>
@@ -18,7 +18,9 @@ export default {
     return {
       mode: 'デフォルト',
       optionIsShow: false,
-      sampleShow: false,
+      topLineStyle: false,
+      centerLineStyle: false,
+      bottomLineStyle: false
     }
   },
   components: {
@@ -28,6 +30,26 @@ export default {
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
       this.optionIsShow = !this.optionIsShow
+      this.topLineStyle = !this.topLineStyle
+      this.centerLineStyle = !this.centerLineStyle
+      this.bottomLineStyle = !this.bottomLineStyle
+    }
+  },
+  computed: {
+    topLine() {
+      return {
+        option__topLine: this.topLineStyle
+      }
+    },
+    centerLine() {
+      return {
+        option__centerLine: this.centerLineStyle
+      }
+    },
+    bottomLine() {
+      return {
+        option__bottomLine: this.bottomLineStyle
+      }
     }
   }
 }
@@ -45,7 +67,7 @@ export default {
   &__button {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-flow: column;
     background: #fff;
     width: 56px;
     height: 56px;
@@ -61,6 +83,42 @@ export default {
     height: 6px;
     border-radius: 50px;
     background: #000;
+  }
+
+  // 三本線の一番上
+  &__topLine {
+    animation-name: topAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    margin-left: 11px;
+    
+    @keyframes topAnimation {
+      100% {
+        transform-origin: left;
+        transform: rotate(-319deg);
+      }
+    }
+  }
+
+  // 三本線の真ん中
+  &__centerLine {
+    background: #fff;
+    transition: 1s;
+  }
+
+  // 三本線の一番下
+  &__bottomLine {
+    animation-name: bottomAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    margin-left: 11px;
+    
+    @keyframes bottomAnimation {
+      100% {
+        transform-origin: left;
+        transform: rotate(319deg);
+      }
+    }
   }
 }
 </style>

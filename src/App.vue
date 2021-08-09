@@ -3,7 +3,7 @@
     <MainTitle/>
     <TodoInput/>
     <Option @clickModes="changeModes"/>
-    <Evaluation msg="Evaluation_file"/>
+    <Evaluation/>
   </div>
 </template>
 
@@ -14,13 +14,6 @@ import Option from './components/Option.vue'
 import Evaluation from './components/Evaluation.vue'
 
 export default {
-  data() {
-    return {
-      todos: [],
-      todoName: "",
-      placeholder: "taskName",
-    }
-  },
   components: {
     MainTitle,
     TodoInput,
@@ -41,5 +34,6 @@ export default {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  background: #CC1669;
 }
 </style>

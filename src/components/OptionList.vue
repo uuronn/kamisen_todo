@@ -30,20 +30,21 @@ export default {
     
     // デフォルトモードにするメソッド
     defaultMode() {
-      // this.mode = "デフォルト"
+      this.$emit("defaultMode")
       // this.buttonMenu = false
       // this.$emit("clickModes"," taskName")
     },
 
     // 煽りモードにするメソッド
     dissMode() {
-      // this.mode = "煽り"
+      this.$emit("dissMode")
       // this.buttonMenu = false
       // this.$emit("clickModes"," はよ仕事しろ")
     },
 
     // 筋トレモードにするメソッド
     muscleMode() {
+      this.$emit("muscleMode")
       // this.mode = "筋トレ"
       // this.buttonMenu = false
       // this.$emit("clickModes"," 腹筋6LDK目指しましょう")

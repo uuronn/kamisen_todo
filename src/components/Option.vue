@@ -6,7 +6,12 @@
       <span class="option__style" :class="centerLine"></span>
       <span class="option__style" :class="bottomLine"></span>
     </button>
-    <OptionList v-if="optionIsShow"/>
+    <OptionList
+      v-if="optionIsShow"
+      @defaultMode="defaultMode"
+      @dissMode="dissMode"
+      @muscleMode="muscleMode"
+    />
   </div>
 </template>
 
@@ -27,6 +32,17 @@ export default {
     OptionList
   },
   methods: {
+    defaultMode() {
+      this.mode = "デフォルト"
+    },
+    dissMode() {
+      this.mode = "煽り"
+    },
+    muscleMode() {
+      this.mode = "筋トレ"
+    },
+
+
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
       this.optionIsShow = !this.optionIsShow
@@ -36,6 +52,7 @@ export default {
     }
   },
   computed: {
+    // 三本線のスタイル
     topLine() {
       return {
         option__topLine: this.topLineStyle
@@ -72,7 +89,7 @@ export default {
     width: 56px;
     height: 56px;
     margin-left: auto;
-    border: 1px solid #000;
+    border: 2px solid #000;
     border-radius: 8px;
   }
 
@@ -89,8 +106,9 @@ export default {
   &__topLine {
     animation-name: topAnimation;
     animation-fill-mode: forwards;
-    animation-duration: 1s;
-    margin-left: 11px;
+    animation-duration: 0.5s;
+    margin-left: 10px;
+    width: 81%;
     
     @keyframes topAnimation {
       100% {
@@ -103,15 +121,16 @@ export default {
   // 三本線の真ん中
   &__centerLine {
     background: #fff;
-    transition: 1s;
+    transition: 0.5s;
   }
 
   // 三本線の一番下
   &__bottomLine {
     animation-name: bottomAnimation;
     animation-fill-mode: forwards;
-    animation-duration: 1s;
-    margin-left: 11px;
+    animation-duration: 0.5s;
+    margin-left: 10px;
+    width: 81%;
     
     @keyframes bottomAnimation {
       100% {

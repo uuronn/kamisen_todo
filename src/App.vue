@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <MainTitle/>
+    <TheTitle/>
     <TodoInput/>
     <Option @clickModes="changeModes"/>
     <Evaluation/>
@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import MainTitle from './components/MainTitle.vue'
+import TheTitle from './components/TheTitle.vue'
 import TodoInput from './components/TodoInput.vue'
 import Option from './components/Option.vue'
-import Evaluation from './components/Evaluation.vue'
+import Evaluation from './components/TheEvaluation.vue'
 
 export default {
   components: {
-    MainTitle,
+    TheTitle,
     TodoInput,
     Option,
     Evaluation

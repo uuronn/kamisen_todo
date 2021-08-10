@@ -6,7 +6,7 @@
       <span class="option__style" :class="centerLine"></span>
       <span class="option__style" :class="bottomLine"></span>
     </button>
-    <OptionList
+    <OptionContent
       v-if="optionIsShow"
       @defaultMode="defaultMode"
       @dissMode="dissMode"
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import OptionList from './OptionList.vue'
+import OptionContent from './OptionContent.vue'
 
 export default {
   data() {
@@ -29,7 +29,7 @@ export default {
     }
   },
   components: {
-    OptionList
+    OptionContent
   },
   methods: {
     defaultMode() {

@@ -1,16 +1,13 @@
 <template>
   <div class="optionList">
-    <div class="optionList__container">
-      <button class="optionList__button" @click="switchButton">切り替え</button>
-      <button class="optionList__button" v-if="buttonMenu" @click="defaultMode">デフォルトモード</button>
-      <button class="optionList__button" v-if="buttonMenu" @click="dissMode">煽りモード</button>
-      <button class="optionList__button" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
-    </div>
-    <div class="optionList__container--sample">
-      <button class="optionList__button" @click="sampleAction">サンプルボタン</button>
-      <button class="optionList__button" v-if="sampleShow">中身</button>
-      <button class="optionList__button" v-if="sampleShow">中身</button>
-    </div>
+    <ul class="optionList__container">
+      <div class="optionList__item">
+        <button class="optionList__button" @click="switchAction">切り替え</button>
+        <button class="optionList__button" v-if="modeShow" @click="defaultMode">デフォルトモード</button>
+        <button class="optionList__button" v-if="modeShow" @click="dissMode">煽りモード</button>
+        <button class="optionList__button" v-if="modeShow" @click="muscleMode">筋トレモード</button>
+      </div>
+    </ul>
   </div>
 </template>
 
@@ -18,14 +15,14 @@
 export default {
   data() {
     return {
-      buttonMenu: false,
+      modeShow: false,
       sampleShow: false,
     }
   },
   methods: {
     // モードを切り替えるボタンを表示させるメソッド
-    switchButton() {
-      this.buttonMenu = !this.buttonMenu
+    switchAction() {
+      this.modeShow = !this.modeShow
     },
     
     // デフォルトモードにするメソッド
@@ -75,7 +72,7 @@ export default {
     flex-flow: column;
   }
 
-  // すべてのボタン
+  // すべてのボタンのスタイル
   &__button {
     border-radius: 4px;
     border: 2px solid;

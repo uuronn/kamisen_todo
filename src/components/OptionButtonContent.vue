@@ -1,35 +1,28 @@
 <template>
   <div class="optionContent">
     <ul class="optionContent__list">
-      <div class="optionContent__item">
-        <OptionButtonContentMode/>
-      </div>
-      <div class="optionContent__item">
-        <OptionButtonContentCompleted/>
-      </div>
-      <div class="optionContent__item">
-        <OptionButtonContentTimeout/>
-      </div>
+      <OptionButtonContentMode/>
+      <OptionButtonContentTimeout/>
+      <OptionButtonContentCompleted/>
     </ul>
   </div>
 </template>
 
 <script>
-import OptionButtonContentCompleted from './OptionButtonContentCompleted.vue'
-import OptionButtonContentTimeout from './OptionButtonContentTimeout.vue'
 import OptionButtonContentMode from './OptionButtonContentMode.vue'
+import OptionButtonContentTimeout from './OptionButtonContentTimeout.vue'
+import OptionButtonContentCompleted from './OptionButtonContentCompleted.vue'
 
 export default {
   data() {
     return {
-      modeShow: false,
       sampleShow: false,
     }
   },
   components: {
-    OptionButtonContentCompleted,
+    OptionButtonContentMode,
     OptionButtonContentTimeout,
-    OptionButtonContentMode
+    OptionButtonContentCompleted
   },
   methods: {
     // モードを切り替えるボタンを表示させるメソッド
@@ -56,7 +49,7 @@ export default {
       this.$emit("muscleMode")
       // this.mode = "筋トレ"
       // this.buttonMenu = false
-      // this.$emit("clickModes"," 腹筋6LDK目指しましょう")
+      // this.$emit("clickModes"," 腹筋バキバキ！")
     },
 
     // sample
@@ -68,17 +61,20 @@ export default {
 </script>
 
 <style lang="scss">
+// スコープなし
 .optionContent {
-  display: flex;
+  &__list {
+    display: flex;
+  }
 
   &__item {
     display: flex;
     flex-flow: column;
-    min-width: 152px;
   }
 
-  // すべてのボタンのスタイル
+  // 子コンポーネントのボタンスタイル
   &__button {
+    min-width: 136px;
     border-radius: 4px;
     border: 2px solid;
     margin: 2px;

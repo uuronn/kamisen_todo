@@ -91,6 +91,10 @@ export default {
     margin-left: auto;
     border: 2px solid #000;
     border-radius: 8px;
+
+    &:hover {
+      background: $button-hover;
+    }
   }
 
   // ハンバーガーボタンの三本線

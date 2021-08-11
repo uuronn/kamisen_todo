@@ -7,7 +7,7 @@
       <span class="option__style" :class="bottomLine"></span>
     </button>
     <OptionButtonContent
-      v-if="optionIsShow"
+      v-if="contentShow"
       @defaultMode="defaultMode"
       @dissMode="dissMode"
       @muscleMode="muscleMode"
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       mode: 'デフォルト',
-      optionIsShow: false,
+      contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
       bottomLineStyle: false
@@ -42,10 +42,9 @@ export default {
       this.mode = "筋トレ"
     },
 
-
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
-      this.optionIsShow = !this.optionIsShow
+      this.contentShow = !this.contentShow
       this.topLineStyle = !this.topLineStyle
       this.centerLineStyle = !this.centerLineStyle
       this.bottomLineStyle = !this.bottomLineStyle

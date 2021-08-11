@@ -15,9 +15,20 @@ export default {
     }
   },
   methods: {
+
+    // ボタンを表示させるメソッド
     hundleClick() {
       this.modeShow = !this.modeShow
-    }
+    },
+    defaultMode() {
+      this.$emit("defaultMode")
+    },
+    dissMode() {
+      this.$emit("dissMode")
+    },
+    muscleMode() {
+      this.$emit("muscleMode")
+    },
   }
 }
 </script>

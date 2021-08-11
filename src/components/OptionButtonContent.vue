@@ -1,7 +1,11 @@
 <template>
   <div class="optionContent">
     <ul class="optionContent__list">
-      <OptionButtonContentMode/>
+      <OptionButtonContentMode
+        @defaultMode="defaultMode"
+        @dissMode="dissMode"
+        @muscleMode="muscleMode"
+      />
       <OptionButtonContentTimeout/>
       <OptionButtonContentCompleted/>
     </ul>

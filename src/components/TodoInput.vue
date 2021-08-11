@@ -1,12 +1,12 @@
 <template>
-  <div class="todoInput">
+  <div class="input">
     <input
-      class="todoInput__form"
+      class="input__form"
       v-model="todoName"
       :placeholder="placeholder"
     />
-    <button class="todoInput__button" @click="addTodo">追加</button>
-    <TodoList
+    <button class="input__button" @click="addTodo">追加</button>
+    <TodoInputList
       :todos="todos"
       @doneTodo="doneTodo"
       @deleteTodo="deleteTodo"
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import TodoList from './TodoList.vue'
+import TodoInputList from './TodoInputList.vue'
 
 export default {
   data() {
@@ -28,7 +28,7 @@ export default {
     }
   },
   components: {
-    TodoList
+    TodoInputList
   },
   methods: {
     // タスクを追加するメソッド
@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.todoInput {
+.input {
   text-align: center;
 
   // タスク名入れるinput

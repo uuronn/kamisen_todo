@@ -1,7 +1,7 @@
 <template>
   <div class="todoList">
     <ul class="todoList__content">
-      <TodoListItem
+      <TodoInputListItem
         v-for="(todo,i) in todos"
         :todo="todo"
         :key="i"
@@ -16,14 +16,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import TodoListItem from './TodoListItem.vue'
+import TodoInputListItem from './TodoInputListItem.vue'
 
 export default Vue.extend({
   props: {
     todos: Array,
   },
   components: {
-    TodoListItem
+    TodoInputListItem
   },
   methods: {
     doneTodo(i) {

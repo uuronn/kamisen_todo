@@ -1,23 +1,35 @@
 <template>
-  <div class="optionList">
-    <ul class="optionList__container">
-      <div class="optionList__item">
-        <button class="optionList__button" @click="switchAction">切り替え</button>
-        <button class="optionList__button" v-if="modeShow" @click="defaultMode">デフォルトモード</button>
-        <button class="optionList__button" v-if="modeShow" @click="dissMode">煽りモード</button>
-        <button class="optionList__button" v-if="modeShow" @click="muscleMode">筋トレモード</button>
+  <div class="optionContent">
+    <ul class="optionContent__list">
+      <div class="optionContent__item">
+        <OptionButtonContentMode/>
+      </div>
+      <div class="optionContent__item">
+        <OptionButtonContentCompleted/>
+      </div>
+      <div class="optionContent__item">
+        <OptionButtonContentTimeout/>
       </div>
     </ul>
   </div>
 </template>
 
 <script>
+import OptionButtonContentCompleted from './OptionButtonContentCompleted.vue'
+import OptionButtonContentTimeout from './OptionButtonContentTimeout.vue'
+import OptionButtonContentMode from './OptionButtonContentMode.vue'
+
 export default {
   data() {
     return {
       modeShow: false,
       sampleShow: false,
     }
+  },
+  components: {
+    OptionButtonContentCompleted,
+    OptionButtonContentTimeout,
+    OptionButtonContentMode
   },
   methods: {
     // モードを切り替えるボタンを表示させるメソッド
@@ -55,21 +67,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.optionList {
+<style lang="scss">
+.optionContent {
   display: flex;
 
-  // 切り替えボタン
-  &__container {
+  &__item {
     display: flex;
     flex-flow: column;
     min-width: 152px;
-  }
-
-  // サンプルボタン
-  &__container--sample {
-    display: flex;
-    flex-flow: column;
   }
 
   // すべてのボタンのスタイル

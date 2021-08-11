@@ -2,23 +2,23 @@
   <div class="root">
     <TheTitle/>
     <TodoInput/>
-    <Option @clickModes="changeModes"/>
-    <Evaluation/>
+    <OptionButton @clickModes="changeModes"/>
+    <TheEvaluation/>
   </div>
 </template>
 
 <script>
 import TheTitle from './components/TheTitle.vue'
 import TodoInput from './components/TodoInput.vue'
-import Option from './components/Option.vue'
-import Evaluation from './components/TheEvaluation.vue'
+import OptionButton from './components/OptionButton.vue'
+import TheEvaluation from './components/TheEvaluation.vue'
 
 export default {
   components: {
     TheTitle,
     TodoInput,
-    Option,
-    Evaluation
+    OptionButton,
+    TheEvaluation
   },
   methods: {
     // モード切り替えメソッド

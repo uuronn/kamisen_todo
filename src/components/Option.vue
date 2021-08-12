@@ -6,7 +6,7 @@
       <span class="option__style" :class="centerLine"></span>
       <span class="option__style" :class="bottomLine"></span>
     </button>
-    <OptionButtonContent
+    <OptionContent
       v-if="contentShow"
       @defaultMode="defaultMode"
       @dissMode="dissMode"
@@ -16,38 +16,38 @@
 </template>
 
 <script>
-import OptionButtonContent from './OptionButtonContent.vue'
+import OptionContent from "./OptionContent.vue";
 
 export default {
   data() {
     return {
-      mode: 'デフォルト',
+      mode: "デフォルト",
       contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
       bottomLineStyle: false
-    }
+    };
   },
   components: {
-    OptionButtonContent
+    OptionContent
   },
   methods: {
     defaultMode() {
-      this.mode = "デフォルト"
+      this.mode = "デフォルト";
     },
     dissMode() {
-      this.mode = "煽り"
+      this.mode = "煽り";
     },
     muscleMode() {
-      this.mode = "筋トレ"
+      this.mode = "筋トレ";
     },
 
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
-      this.contentShow = !this.contentShow
-      this.topLineStyle = !this.topLineStyle
-      this.centerLineStyle = !this.centerLineStyle
-      this.bottomLineStyle = !this.bottomLineStyle
+      this.contentShow = !this.contentShow;
+      this.topLineStyle = !this.topLineStyle;
+      this.centerLineStyle = !this.centerLineStyle;
+      this.bottomLineStyle = !this.bottomLineStyle;
     }
   },
   computed: {
@@ -55,20 +55,20 @@ export default {
     topLine() {
       return {
         option__topLine: this.topLineStyle
-      }
+      };
     },
     centerLine() {
       return {
         option__centerLine: this.centerLineStyle
-      }
+      };
     },
     bottomLine() {
       return {
         option__bottomLine: this.bottomLineStyle
-      }
+      };
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -112,7 +112,7 @@ export default {
     animation-duration: 0.5s;
     margin-left: 10px;
     width: 81%;
-    
+
     @keyframes topAnimation {
       100% {
         transform-origin: left;
@@ -134,7 +134,7 @@ export default {
     animation-duration: 0.5s;
     margin-left: 10px;
     width: 81%;
-    
+
     @keyframes bottomAnimation {
       100% {
         transform-origin: left;

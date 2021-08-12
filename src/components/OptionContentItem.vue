@@ -41,3 +41,23 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.optionContentItem {
+  display: flex;
+  flex-direction: column;
+
+  // 子コンポーネントのボタンスタイル
+  &__button {
+    min-width: 136px;
+    border-radius: 4px;
+    border: 2px solid;
+    margin: 2px;
+    background: $button-back;
+
+    &:hover {
+      background: $button-hover;
+    }
+  }
+}
+</style>

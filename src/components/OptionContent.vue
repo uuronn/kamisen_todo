@@ -2,7 +2,8 @@
   <div class="optionContent">
     <ul class="optionContent__list">
       <OptionContentItem :data="mode" title="モード切り替え" />
-      <OptionContentItem :data="completed" title="" />
+      <OptionContentItem :data="completed" title="完了したタスク" />
+      <OptionContentItem :data="timeout" title="時間切れしたタスク" />
     </ul>
   </div>
 </template>
@@ -16,19 +17,29 @@ export default {
       sampleShow: false,
       mode: [
         {
-          click: defaultMode,
+          click: this.defaultMode,
           title: "デフォルトモード"
         },
         {
-          click: dissMode,
+          click: this.dissMode,
           title: "煽りモード"
         },
         {
-          click: muscleMode,
+          click: this.muscleMode,
           title: "筋トレモード"
         }
       ],
       completed: [
+        {
+          click: () => null,
+          title: "中身"
+        },
+        {
+          click: () => null,
+          title: "中身"
+        }
+      ],
+      timeout: [
         {
           click: () => null,
           title: "中身"
@@ -79,28 +90,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .optionContent {
   &__list {
     display: flex;
-  }
-
-  &__item {
-    display: flex;
-    flex-flow: column;
-  }
-
-  // 子コンポーネントのボタンスタイル
-  &__button {
-    min-width: 136px;
-    border-radius: 4px;
-    border: 2px solid;
-    margin: 2px;
-    background: $button-back;
-
-    &:hover {
-      background: $button-hover;
-    }
   }
 }
 </style>

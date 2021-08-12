@@ -1,56 +1,71 @@
 <template>
   <div class="optionContent">
     <ul class="optionContent__list">
-      <OptionButtonContentMode
-        @defaultMode="defaultMode"
-        @dissMode="dissMode"
-        @muscleMode="muscleMode"
-      />
-      <OptionButtonContentTimeout/>
-      <OptionButtonContentCompleted/>
+      <OptionContentItem :data="mode" title="モード切り替え" />
+      <OptionContentItem :data="completed" title="" />
     </ul>
   </div>
 </template>
 
 <script>
-import OptionButtonContentMode from './OptionButtonContentMode.vue'
-import OptionButtonContentTimeout from './OptionButtonContentTimeout.vue'
-import OptionButtonContentCompleted from './OptionButtonContentCompleted.vue'
+import OptionContentItem from "./OptionContentItem.vue";
 
 export default {
   data() {
     return {
       sampleShow: false,
-    }
+      mode: [
+        {
+          click: defaultMode,
+          title: "デフォルトモード"
+        },
+        {
+          click: dissMode,
+          title: "煽りモード"
+        },
+        {
+          click: muscleMode,
+          title: "筋トレモード"
+        }
+      ],
+      completed: [
+        {
+          click: () => null,
+          title: "中身"
+        },
+        {
+          click: () => null,
+          title: "中身"
+        }
+      ]
+    };
   },
   components: {
-    OptionButtonContentMode,
-    OptionButtonContentTimeout,
-    OptionButtonContentCompleted
+    OptionContentItem
   },
   methods: {
     // モードを切り替えるボタンを表示させるメソッド
     switchAction() {
-      this.modeShow = !this.modeShow
+      this.modeShow = !this.modeShow;
     },
-    
+
     // デフォルトモードにするメソッド
     defaultMode() {
-      this.$emit("defaultMode")
+      this.$emit("defaultMode");
       // this.buttonMenu = false
       // this.$emit("clickModes"," taskName")
     },
 
     // 煽りモードにするメソッド
     dissMode() {
-      this.$emit("dissMode")
+      this.$emit("dissMode");
       // this.buttonMenu = false
       // this.$emit("clickModes"," はよ仕事しろ")
     },
 
     // 筋トレモードにするメソッド
     muscleMode() {
-      this.$emit("muscleMode")
+      this.$emit("muscleMode");
       // this.mode = "筋トレ"
       // this.buttonMenu = false
       // this.$emit("clickModes"," 腹筋バキバキ！")
@@ -58,14 +73,13 @@ export default {
 
     // sample
     sampleAction() {
-      this.sampleShow = !this.sampleShow
+      this.sampleShow = !this.sampleShow;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-// スコープなし
 .optionContent {
   &__list {
     display: flex;

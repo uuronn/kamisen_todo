@@ -1,40 +1,21 @@
 <template>
   <div class="evaluation">
-    <div class="evaluation__container">
-      <button class="evaluation__button">
-        評価
-      </button>
-    </div>
+    <button class="evaluation__button">評価</button>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .evaluation {
-  
-  &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: -4vw;
-    bottom: -4vw;
-    width: 25vw;
-    height: 25vw;
-    min-width: 120px;
-    min-height: 120px;
-  }
-
-  &__button {
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    font-size: 4vw;
-    border: 2px solid;
-    background-color: $button-back;
-
-    &:hover {
-      background: $button-hover;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: #fff;
+  right: 0.5vw;
+  bottom: 0.5vw;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  z-index: 10;
 }
 </style>

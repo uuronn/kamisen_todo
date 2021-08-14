@@ -1,144 +1,145 @@
 <template>
   <div class="option">
-    <h3 class="option__announce">{{ mode }}モード</h3>
-      <div class="option__button" @click="openOption">
-        <img
-          class="option__image"
-          src="../assets/option_button-img.png"
-          alt="ハンバーガーメニュー画像"
-        />
-      </div>
-      <div class="option__content" v-if="optionIsShow">
-        <div class="option__mode">
-          <button class="option__switch" @click="switchButton">切り替え</button>
-          <button class="option__default" v-if="buttonMenu" @click="defaultMode">デフォルトモード</button>
-          <button class="option__diss" v-if="buttonMenu" @click="dissMode">煽りモード</button>
-          <button class="option__muscle" v-if="buttonMenu" @click="muscleMode">筋トレモード</button>
-        </div>
-        <div class="option__sample">
-          <button class="option__btn" @click="sampleAction">テストボタン</button>
-          <button class="option__show" v-if="sampleShow">中身</button>
-          <button class="option__show" v-if="sampleShow">中身</button>
-        </div>
-      </div>
+    <span class="option__announce">{{ mode }}モード</span>
+    <button class="option__button" @click="openOption">
+      <span class="option__style" :class="topLine"></span>
+      <span class="option__style" :class="centerLine"></span>
+      <span class="option__style" :class="bottomLine"></span>
+    </button>
+    <OptionContent
+      v-if="contentShow"
+      @defaultMode="defaultMode"
+      @dissMode="dissMode"
+      @muscleMode="muscleMode"
+    />
   </div>
 </template>
 
 <script>
+import OptionContent from "./OptionContent.vue";
+
 export default {
   data() {
     return {
-      mode: 'デフォルト',
-      optionIsShow: false,
-      buttonMenu: false,
-      sampleShow: false,
-    }
+      mode: "デフォルト",
+      contentShow: false,
+      topLineStyle: false,
+      centerLineStyle: false,
+      bottomLineStyle: false
+    };
+  },
+  components: {
+    OptionContent
   },
   methods: {
-    // モードを切り替えるボタンを表示させるメソッド
-    switchButton() {
-      this.buttonMenu = !this.buttonMenu
-    },
-
-    // デフォルトモードにするメソッド
     defaultMode() {
-      this.mode = "デフォルト"
-      this.buttonMenu = false
-      this.$emit("clickModes"," taskName")
+      this.mode = "デフォルト";
     },
-
-    // 煽りモードにするメソッド
     dissMode() {
-      this.mode = "煽り"
-      this.buttonMenu = false
-      this.$emit("clickModes"," はよ仕事しろ")
+      this.mode = "煽り";
+    },
+    muscleMode() {
+      this.mode = "筋トレ";
     },
 
-    // 筋トレモードにするメソッド
-    muscleMode() {
-      this.mode = "筋トレ"
-      this.buttonMenu = false
-      this.$emit("clickModes"," 腹筋6LDK目指しましょう")
-    },
-    
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
-      this.optionIsShow = !this.optionIsShow
+      this.contentShow = !this.contentShow;
+      this.topLineStyle = !this.topLineStyle;
+      this.centerLineStyle = !this.centerLineStyle;
+      this.bottomLineStyle = !this.bottomLineStyle;
+    }
+  },
+  computed: {
+    // 三本線のスタイル
+    topLine() {
+      return {
+        option__topLine: this.topLineStyle
+      };
     },
-
-    // sample
-    sampleAction() {
-      this.sampleShow = !this.sampleShow
+    centerLine() {
+      return {
+        option__centerLine: this.centerLineStyle
+      };
+    },
+    bottomLine() {
+      return {
+        option__bottomLine: this.bottomLineStyle
+      };
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .option {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   right: 0.5vw;
   top: 0.5vw;
   text-align: right;
 
+  // ハンバーガーボタン
   &__button {
-    width: 50px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    background: #fff;
+    width: 56px;
+    height: 56px;
     margin-left: auto;
-  }
-
-  &__image {
-    width: 100%;
+    border: 2px solid #000;
     border-radius: 8px;
-    vertical-align:top;
-    transition: 0.5s;
-
-    &:hover {
-      border-radius: 32px;
-      transform:rotate(180deg);
-    }
-  }
-  
-  &__content {
-    display: flex;
-    animation-name: test;
-    animation-direction: 1s;
-    transition: all 1s;
-  }
-
-  &__mode {
-    width: 144px;
-    display: flex;
-    flex-flow: column;
-    transition: 1s;
-
-    & button {
-      border-radius: 4px;
-      border: 2px solid;
-      margin: 2px;
-      background: $button-back;
-
-      &:hover {
-        background: $button-hover;
-      }
-    }
-  }
-  
-  &__sample {
-    // widthは確定ではない
-    width: 120px;
-    display: flex;
-    flex-flow: column;
-  }
-
-  & button {
-    background: $button-back;
-    border-radius: 4px;
-    border: 2px solid;
-    margin: 2px;
 
     &:hover {
       background: $button-hover;
+    }
+  }
+
+  // ハンバーガーボタンの三本線
+  &__style {
+    margin: 4px auto;
+    width: 80%;
+    height: 6px;
+    border-radius: 50px;
+    background: #000;
+  }
+
+  // 三本線の一番上
+  &__topLine {
+    animation-name: topAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    margin-left: 10px;
+    width: 81%;
+
+    @keyframes topAnimation {
+      100% {
+        transform-origin: left;
+        transform: rotate(-319deg);
+      }
+    }
+  }
+
+  // 三本線の真ん中
+  &__centerLine {
+    background: #fff;
+    transition: 0.5s;
+  }
+
+  // 三本線の一番下
+  &__bottomLine {
+    animation-name: bottomAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    margin-left: 10px;
+    width: 81%;
+
+    @keyframes bottomAnimation {
+      100% {
+        transform-origin: left;
+        transform: rotate(319deg);
+      }
     }
   }
 }

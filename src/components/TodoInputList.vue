@@ -1,13 +1,13 @@
 <template>
-  <div class="todos">
-    <ul class="todos__container">
-      <TodoItem
+  <div class="todoList">
+    <ul class="todoList__content">
+      <TodoInputListItem
         v-for="(todo,i) in todos"
         :todo="todo"
         :key="i"
-        @clickDone="doneTodo(i)"
-        @clickDelete="deleteTodo(i)"
-        @clickStart="startTodo(i)"
+        @doneTodo="doneTodo(i)"
+        @deleteTodo="deleteTodo(i)"
+        @startTodo="startTodo(i)"
         @stopTodo="stopTodo(i)"
       />
     </ul>
@@ -16,24 +16,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import TodoItem from './TodoItem.vue'
+import TodoInputListItem from './TodoInputListItem.vue'
 
 export default Vue.extend({
   props: {
     todos: Array,
   },
   components: {
-    TodoItem
+    TodoInputListItem
   },
   methods: {
     doneTodo(i) {
-      this.$emit("clickDone",i)
+      this.$emit("doneTodo",i)
     },
     deleteTodo(i) {
-      this.$emit("clickDelete",i)
+      this.$emit("deleteTodo",i)
     },
     startTodo(i) {
-      this.$emit("clickStart",i)
+      this.$emit("startTodo",i)
     },
     stopTodo(i) {
       this.$emit("stopTodo",i)

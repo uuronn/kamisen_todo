@@ -6,17 +6,14 @@
       <span class="option__style" :class="centerLine"></span>
       <span class="option__style" :class="bottomLine"></span>
     </button>
-    <OptionButtonContent
+    <OptionContent
       v-if="contentShow"
-      @defaultMode="defaultMode"
-      @dissMode="dissMode"
-      @muscleMode="muscleMode"
     />
   </div>
 </template>
 
 <script>
-import OptionButtonContent from './OptionButtonContent.vue'
+import OptionContent from './OptionContent.vue'
 
 export default {
   data() {
@@ -29,19 +26,9 @@ export default {
     }
   },
   components: {
-    OptionButtonContent
+    OptionContent
   },
   methods: {
-    defaultMode() {
-      this.mode = "デフォルト"
-    },
-    dissMode() {
-      this.mode = "煽り"
-    },
-    muscleMode() {
-      this.mode = "筋トレ"
-    },
-
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
       this.contentShow = !this.contentShow

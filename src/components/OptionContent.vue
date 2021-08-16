@@ -13,6 +13,9 @@
 import OptionContentItem from "./OptionContentItem.vue";
 
 export default {
+  props: {
+    announce: String
+  },
   data() {
     return {
       mode: [
@@ -21,17 +24,25 @@ export default {
           title: "デフォルトモード"
         },
         {
-          click: this.dissMode,
+          click() {
+            console.log("煽り")
+            this.$emit("diss")
+          },
           title: "煽りモード"
         },
         {
-          click: this.muscleMode,
+          click() {
+            console.log("筋トレ")
+
+          },
           title: "筋トレモード"
         }
       ],
       sample: [
         {
-          click: console.log("成功"),
+          click() {
+            console.log("成功")
+          },
           title: "テストボタン中身"
         }
       ],
@@ -103,4 +114,3 @@ export default {
   }
 }
 </style>
-

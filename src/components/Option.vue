@@ -1,6 +1,6 @@
 <template>
   <div class="option">
-    <span class="option__announce">{{ mode }}モード</span>
+    <span class="option__announce">{{ announce }}モード</span>
     <button class="option__button" @click="openOption">
       <span class="option__style" :class="topLine"></span>
       <span class="option__style" :class="centerLine"></span>
@@ -8,6 +8,8 @@
     </button>
     <OptionContent
       v-if="contentShow"
+      :announce="announce"
+      @diss="diss"
     />
   </div>
 </template>
@@ -18,7 +20,7 @@ import OptionContent from './OptionContent.vue'
 export default {
   data() {
     return {
-      mode: 'デフォルト',
+      announce: "デフォルト",
       contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
@@ -29,6 +31,10 @@ export default {
     OptionContent
   },
   methods: {
+    diss() {
+      this.announce = "煽り"
+    },
+
     // ハンバーガーメニューの中身を表示させるメソッド
     openOption() {
       this.contentShow = !this.contentShow

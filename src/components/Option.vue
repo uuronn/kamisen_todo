@@ -1,27 +1,26 @@
 <template>
   <div class="option">
-    <span class="option__announce">{{ mode }}モード</span>
+    <span class="option__announce">{{ announce }}モード</span>
     <button class="option__button" @click="openOption">
       <span class="option__style" :class="topLine"></span>
       <span class="option__style" :class="centerLine"></span>
       <span class="option__style" :class="bottomLine"></span>
     </button>
-    <OptionButtonContent
+    <OptionContent
       v-if="contentShow"
-      @defaultMode="defaultMode"
-      @dissMode="dissMode"
-      @muscleMode="muscleMode"
+      :announce="announce"
+      @diss="diss"
     />
   </div>
 </template>
 
 <script>
-import OptionButtonContent from './OptionButtonContent.vue'
+import OptionContent from './OptionContent.vue'
 
 export default {
   data() {
     return {
-      mode: 'デフォルト',
+      announce: "デフォルト",
       contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
@@ -29,17 +28,11 @@ export default {
     }
   },
   components: {
-    OptionButtonContent
+    OptionContent
   },
   methods: {
-    defaultMode() {
-      this.mode = "デフォルト"
-    },
-    dissMode() {
-      this.mode = "煽り"
-    },
-    muscleMode() {
-      this.mode = "筋トレ"
+    diss() {
+      this.announce = "煽り"
     },
 
     // ハンバーガーメニューの中身を表示させるメソッド

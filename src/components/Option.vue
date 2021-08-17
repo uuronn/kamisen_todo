@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     diss() {
-      this.announce = "煽り"
     },
 
     // ハンバーガーメニューの中身を表示させるメソッド

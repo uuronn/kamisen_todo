@@ -25,15 +25,12 @@ export default {
         },
         {
           click() {
-            console.log("煽り")
             this.$emit("diss")
           },
           title: "煽りモード"
         },
         {
           click() {
-            console.log("筋トレ")
-
           },
           title: "筋トレモード"
         }

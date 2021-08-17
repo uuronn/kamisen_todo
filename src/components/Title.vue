@@ -1,8 +1,18 @@
 <template>
-  <div class="TheTitle">
-    <h1 class="TheTitle__font">神の宣告</h1>
+  <div class="title">
+    <h1 class="title__font">{{ titleName }}</h1>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      titleName: "神の宣告"
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .TheTitle {

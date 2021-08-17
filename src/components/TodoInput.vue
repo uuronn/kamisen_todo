@@ -1,11 +1,11 @@
 <template>
-  <div class="input">
+  <div class="todoInput">
     <input
-      class="input__form"
+      class="todoInput__form"
       v-model="todoName"
       :placeholder="placeholder"
     />
-    <button class="input__button" @click="addTodo">追加</button>
+    <button class="todoInput__button" @click="addTodo">追加</button>
     <TodoInputList
       :todos="todos"
       @doneTodo="doneTodo"
@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.input {
+.todoInput {
   text-align: center;
 
   // タスク名入れるinput

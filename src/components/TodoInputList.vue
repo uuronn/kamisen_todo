@@ -1,6 +1,6 @@
 <template>
-  <div class="todoList">
-    <ul class="todoList__content">
+  <div class="todoInputList">
+    <ul class="todoInputList__content">
       <TodoInputListItem
         v-for="(todo,i) in todos"
         :todo="todo"

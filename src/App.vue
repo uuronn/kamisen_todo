@@ -1,24 +1,24 @@
 <template>
   <div class="root">
-    <TheTitle/>
+    <Title/>
     <TodoInput/>
     <Option @clickModes="changeModes"/>
-    <TheEvaluation/>
+    <Evaluation/>
   </div>
 </template>
 
 <script>
-import TheTitle from './components/TheTitle.vue'
+import Title from './components/Title.vue'
 import TodoInput from './components/TodoInput.vue'
 import Option from './components/Option.vue'
-import TheEvaluation from './components/TheEvaluation.vue'
+import Evaluation from './components/Evaluation.vue'
 
 export default {
   components: {
-    TheTitle,
+    Title,
     TodoInput,
     Option,
-    TheEvaluation
+    Evaluation
   },
   methods: {
     // モード切り替えメソッド

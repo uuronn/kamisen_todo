@@ -1,15 +1,15 @@
 <template>
-  <div class="todoItem">
-    <span class="todoItem__finish" v-if="todo.done">完了</span>
+  <div class="todoInputListItem">
+    <span class="todoInputListItem__finish" v-if="todo.done">完了</span>
     <input
-      class="todoItem__name"
+      class="todoInputListItem__name"
       :value="todo.todoName"
       type="text"
     />
-    <button class="todoItem__button" v-if="!todo.done" @click="doneTodo">完了</button>
-    <button class="todoItem__button" @click="deleteTodo">削除</button>
-    <button class="todoItem__button" v-if="todo.startOpen" @click="startTodo">開始</button>
-    <span class="todoItem__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
+    <button class="todoInputListItem__button" v-if="!todo.done" @click="doneTodo">完了</button>
+    <button class="todoInputListItem__button" @click="deleteTodo">削除</button>
+    <button class="todoInputListItem__button" v-if="todo.startOpen" @click="startTodo">開始</button>
+    <span class="todoInputListItem__timer" v-if="todo.timerOpen">{{ todo.timer }}</span>
   </div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.todoItem {
+.todoInputListItem {
   &__name {
     border-radius: 4px;
     border: 2px solid;

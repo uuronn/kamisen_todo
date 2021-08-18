@@ -1,10 +1,10 @@
 <template>
   <div class="optionContent">
     <ul class="optionContent__list">
-      <OptionContentItem :data="mode" title="モード切り替え" />
-      <OptionContentItem :data="completed" title="完了したタスク" />
-      <OptionContentItem :data="timeout" title="時間切れしたタスク" />
-      <OptionContentItem :data="sample" title="テストするボタン" />
+      <OptionContentItem :options="modes" @onClick="onClick" title="モード切り替え" />
+      <OptionContentItem :options="completed" title="完了したタスク" />
+      <OptionContentItem :options="timeout" title="時間切れしたタスク" />
+      <OptionContentItem :options="sample" title="テストするボタン" />
     </ul>
   </div>
 </template>
@@ -13,54 +13,35 @@
 import OptionContentItem from "./OptionContentItem.vue";
 
 export default {
-  props: {
-    announce: String
-  },
+  props: ['modes'],
   data() {
     return {
-      mode: [
-        {
-          click: this.defaultMode,
-          title: "デフォルトモード"
-        },
-        {
-          click() {
-            this.$emit("diss")
-          },
-          title: "煽りモード"
-        },
-        {
-          click() {
-          },
-          title: "筋トレモード"
-        }
-      ],
       sample: [
         {
           click() {
             console.log("成功")
           },
-          title: "テストボタン中身"
+          btnName: "テストボタン中身"
         }
       ],
       completed: [
         {
           click: () => null,
-          title: "中身"
+          btnName: "中身"
         },
         {
           click: () => null,
-          title: "中身"
+          btnName: "中身"
         }
       ],
       timeout: [
         {
           click: () => null,
-          title: "中身"
+          btnName: "中身"
         },
         {
           click: () => null,
-          title: "中身"
+          btnName: "中身"
         }
       ]
     };
@@ -72,6 +53,10 @@ export default {
     // モードを切り替えるボタンを表示させるメソッド
     switchAction() {
       this.modeShow = !this.modeShow;
+    },
+
+    onClick(btnName) {
+      this.$emit('onClick', btnName)
     },
 
     // デフォルトモードにするメソッド

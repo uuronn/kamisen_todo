@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.TheTitle {
+.title {
   margin: 5vw auto 3vw auto;
   text-align: center;
   

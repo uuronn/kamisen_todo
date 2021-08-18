@@ -1,16 +1,16 @@
 <template>
   <div class="optionContentItem">
-    <button class="optionContentItem_button" @click="hundleClick">
+    <button class="optionContentItem__button" @click="showContent">
       {{ title }}
     </button>
-    <div v-if="modeShow">
+    <div class="optionContentItem__wrapper" v-if="modeShow">
       <button
-        v-for="(btn, i) in data"
-        :key="i"
         class="optionContentItem__button"
-        @click="btn.click"
+        v-for="(option, i) in options"
+        :key="i"
+        @click="onClick(option)"
       >
-        {{ btn.title }}
+        {{ option }}
       </button>
     </div>
   </div>
@@ -18,25 +18,23 @@
 
 <script>
 export default {
-  props: ["data", "title"],
+  props: ["options", "title"],
   data() {
     return {
       modeShow: false,
-    };
+    }
   },
   methods: {
     // ボタンを表示させるメソッド
-    hundleClick() {
+    showContent() {
       this.modeShow = !this.modeShow;
     },
     defaultMode() {
       this.$emit("defaultMode");
     },
-    dissMode() {
-      this.$emit("dissMode");
-    },
-    muscleMode() {
-      this.$emit("muscleMode");
+    
+    onClick(btnName) {
+      this.$emit("onClick", btnName)
     }
   }
 };
@@ -47,7 +45,6 @@ export default {
   display: flex;
   flex-direction: column;
 
-  // 子コンポーネントのボタンスタイル
   &__button {
     min-width: 136px;
     border-radius: 4px;

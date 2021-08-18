@@ -2,7 +2,7 @@
   <div class="root">
     <Title/>
     <TodoInput/>
-    <Option @clickModes="changeModes"/>
+    <Option @placeholderChange="placeholderChange"/>
     <Evaluation/>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default {
   },
   methods: {
     // モード切り替えメソッド
-    changeModes(index) {
-      this.placeholder = index
+    placeholderChange() {
+      console.log("成功")
     }
   }
 }

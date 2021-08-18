@@ -1,6 +1,6 @@
 <template>
   <div class="option">
-    <span class="option__announce">{{ announce }}モード</span>
+    <span class="option__announce">{{ isModeName }}</span>
     <button class="option__button" @click="openOption">
       <span class="option__style" :class="topLine"></span>
       <span class="option__style" :class="centerLine"></span>
@@ -8,8 +8,8 @@
     </button>
     <OptionContent
       v-if="contentShow"
-      :announce="announce"
-      @diss="diss"
+      :modes="modes"
+      @onClick="onClick"
     />
   </div>
 </template>
@@ -20,7 +20,8 @@ import OptionContent from './OptionContent.vue'
 export default {
   data() {
     return {
-      announce: "デフォルト",
+      isModeName: "デフォルトモード",
+      modes: ['デフォルトモード', '煽りモード', '筋トレモード'],
       contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
@@ -31,7 +32,9 @@ export default {
     OptionContent
   },
   methods: {
-    diss() {
+    onClick(btnName) {
+      this.isModeName = btnName
+      console.log(btnName)
     },
 
     // ハンバーガーメニューの中身を表示させるメソッド

@@ -2,7 +2,7 @@
   <div class="root">
     <Title/>
     <TodoInput/>
-    <Option @placeholderChange="placeholderChange"/>
+    <Option @placeholderChange="placeholderChange" />
     <Evaluation/>
   </div>
 </template>

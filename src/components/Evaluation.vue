@@ -17,6 +17,7 @@ export default {
     }
   },
   methods: {
+  // 評価ボタン結果
     hundleClick() {
       confirm("あなたのランクは～です")
     }

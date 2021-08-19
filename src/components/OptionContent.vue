@@ -55,8 +55,8 @@ export default {
       this.modeShow = !this.modeShow;
     },
 
-    onClick(btnName) {
-      this.$emit('onClick', btnName)
+    onClick(i) {
+      this.$emit('onClick', i)
     },
 
     // デフォルトモードにするメソッド

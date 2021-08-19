@@ -10,7 +10,7 @@
         :key="i"
         @click="onClick(option)"
       >
-        {{ option }}
+        {{ option.mode }}
       </button>
     </div>
   </div>
@@ -29,12 +29,8 @@ export default {
     showContent() {
       this.modeShow = !this.modeShow;
     },
-    defaultMode() {
-      this.$emit("defaultMode");
-    },
-    
-    onClick(btnName) {
-      this.$emit("onClick", btnName)
+    onClick(i) {
+      this.$emit("onClick", i)
     }
   }
 };
@@ -55,6 +51,11 @@ export default {
     &:hover {
       background: $button-hover;
     }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

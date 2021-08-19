@@ -21,7 +21,17 @@ export default {
   data() {
     return {
       isModeName: "デフォルトモード",
-      modes: ['デフォルトモード', '煽りモード', '筋トレモード'],
+      modes: [
+        {
+          mode: 'デフォルトモード',
+        },
+        {
+          mode: '煽りモード',
+        },
+        {
+          mode: '筋トレモード',
+        }
+      ],
       contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
@@ -32,9 +42,8 @@ export default {
     OptionContent
   },
   methods: {
-    onClick(btnName) {
-      this.isModeName = btnName
-      console.log(btnName)
+    onClick(modes) {
+      this.isModeName = modes.mode
     },
 
     // ハンバーガーメニューの中身を表示させるメソッド

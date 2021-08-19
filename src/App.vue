@@ -1,8 +1,8 @@
 <template>
   <div class="root">
     <Title/>
-    <TodoInput/>
-    <Option @placeholderChange="placeholderChange" />
+    <TodoInput />
+    <Option @placeChange="placeChange" />
     <Evaluation/>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default {
   },
   methods: {
     // モード切り替えメソッド
-    placeholderChange() {
-      console.log("成功")
+    placeChange(modes) {
+      console.log(modes.placeholder)
     }
   }
 }

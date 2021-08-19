@@ -24,12 +24,15 @@ export default {
       modes: [
         {
           mode: 'デフォルトモード',
+          placeholder: ' taskName'
         },
         {
           mode: '煽りモード',
+          placeholder: ' はよ仕事しろ'
         },
         {
           mode: '筋トレモード',
+          placeholder: ' 腹筋バキバキ！'
         }
       ],
       contentShow: false,
@@ -44,6 +47,7 @@ export default {
   methods: {
     onClick(modes) {
       this.isModeName = modes.mode
+      this.$emit("placeChange", modes)
     },
 
     // ハンバーガーメニューの中身を表示させるメソッド

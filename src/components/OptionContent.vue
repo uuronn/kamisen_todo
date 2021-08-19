@@ -55,8 +55,9 @@ export default {
       this.modeShow = !this.modeShow;
     },
 
-    onClick(i) {
-      this.$emit('onClick', i)
+    onClick(option) {
+      this.$emit('onClick', option)
+      this.$emit("placeChange", option)
     },
 
     // デフォルトモードにするメソッド

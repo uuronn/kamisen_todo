@@ -3,7 +3,7 @@
     <input
       class="todoInput__form"
       v-model="todoName"
-      :placeholder="placeholder"
+      :placeholder="modes"
     />
     <button class="todoInput__button" @click="addTodo">追加</button>
     <TodoInputList
@@ -20,10 +20,12 @@
 import TodoInputList from './TodoInputList.vue'
 
 export default {
+  props: [
+    'modes'
+  ],
   data() {
     return {
       todoName: "",
-      placeholder: " taskName",
       todos: [],
     }
   },
@@ -70,6 +72,9 @@ export default {
     // タイマー停止するメソッド
     stopTodo(i) {
       clearInterval(this.todos[i].intervalTimer);
+    },
+    placetest(modes) {
+      console.log(modes)
     }
   },
 }

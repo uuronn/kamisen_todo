@@ -1,8 +1,11 @@
 <template>
   <div class="root">
     <Title/>
-    <TodoInput />
-    <Option @placeChange="placeChange" />
+    <TodoInput :modes="modes" @placetest="placetest" />
+    <Option
+      @placeChange="placeChange"
+      :modes="modes"
+    />
     <Evaluation/>
   </div>
 </template>
@@ -13,7 +16,28 @@ import TodoInput from './components/TodoInput.vue'
 import Option from './components/Option.vue'
 import Evaluation from './components/Evaluation.vue'
 
+
+
+
 export default {
+  data() {
+    return {
+      modes: [
+        {
+          mode: 'デフォルトモード',
+          placeholder: ' taskName'
+        },
+        {
+          mode: '煽りモード',
+          placeholder: ' はよ仕事しろ'
+        },
+        {
+          mode: '筋トレモード',
+          placeholder: ' 腹筋バキバキ！'
+        }
+      ],
+    }
+  },
   components: {
     Title,
     TodoInput,
@@ -22,8 +46,8 @@ export default {
   },
   methods: {
     // モード切り替えメソッド
-    placeChange(modes) {
-      console.log(modes.placeholder)
+    placeChange() {
+      this.$emit('placetest')
     }
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="option">
+    <div class="fdfd">{{ modes[1].placeholder }}</div>
     <span class="option__announce">{{ isModeName }}</span>
     <button class="option__button" @click="openOption">
       <span class="option__style" :class="topLine"></span>
@@ -18,23 +19,12 @@
 import OptionContent from './OptionContent.vue'
 
 export default {
+  props: [
+    'modes'
+  ],
   data() {
     return {
       isModeName: "デフォルトモード",
-      modes: [
-        {
-          mode: 'デフォルトモード',
-          placeholder: ' taskName'
-        },
-        {
-          mode: '煽りモード',
-          placeholder: ' はよ仕事しろ'
-        },
-        {
-          mode: '筋トレモード',
-          placeholder: ' 腹筋バキバキ！'
-        }
-      ],
       contentShow: false,
       topLineStyle: false,
       centerLineStyle: false,
@@ -80,6 +70,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fdfd {
+  width: 200px;
+  height: 200px;
+  color: red;
+}
 .option {
   position: absolute;
   z-index: 10;
